@@ -4,7 +4,6 @@ import React from 'react'
 import './index.css'
 import 'reset-css'
 import { Provider } from 'react-redux'
-
 import { App } from './App'
 
 import { store } from './store/store'
