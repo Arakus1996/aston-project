@@ -1,8 +1,14 @@
-name: GitHub Actions aston-project.
+name: GitHub-actions-aston-project
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
-  Explore-GitHub-Actions:
+  project-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
