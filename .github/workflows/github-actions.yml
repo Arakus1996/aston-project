@@ -24,4 +24,4 @@ jobs:
       - name: lint test
         run: npm run lint
       - name: Project deployment
-        run: npm run deploy
+        uses: actions/deploy-pages@v4
