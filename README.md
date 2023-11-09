@@ -3,6 +3,10 @@
 Status of Last Deployment:<br>
 <img src="https://github.com/Arakus1996/aston-project/workflows/GitHub-actions-aston-project/badge.svg?branch=main"><br>
 
+<img src="https://github.com/Arakus1996/aston-project/actions/workflows/GitHub-actions-aston-project/badge.svg"><br>
+
+<img src="https://github.com/Arakus1996/aston-project/GitHub-actions-aston-project/badge.svg"><br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
