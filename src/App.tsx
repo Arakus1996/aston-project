@@ -4,7 +4,7 @@ export function App() {
   return (
     <BrowserRouter basename='/aston-project'>
       <Routes>
-        <Route path='/' element={<div>HI</div>} />
+        <Route path='/' element={<div>Hello</div>} />
       </Routes>
     </BrowserRouter>
   )
