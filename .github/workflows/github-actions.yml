@@ -23,5 +23,8 @@ jobs:
         run: npm install
       - name: lint test
         run: npm run lint
-      # - name: Project deployment
-      #   uses: actions/deploy-pages@v2
+      - name: Project deployment
+        run: |
+          git config --global user.email ${{secrets.GITHUB_EMAIL}}
+          git config --global user.name ${{secrets.GITHUB_USERNAME}}
+        uses: npm run deploy
