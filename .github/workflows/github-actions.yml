@@ -23,3 +23,9 @@ jobs:
         run: npm install
       - name: lint test
         run: npm run lint
+  project-deploy:
+    runs-on: ubuntu-latest
+    needs: [project-test]
+    steps:
+      - name: Project deployment
+        run: npm run deploy
