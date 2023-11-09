@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 Status of Last Deployment:<br>
-<img src="https://github.com/Arakus1996/aston-project/workflows/Tests-aston-project/badge.svg?branch=gh-pages"><br>
+<img src="https://github.com/Arakus1996/aston-project/workflows/GitHub-actions-aston-project/badge.svg?branch=gh-pages"><br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

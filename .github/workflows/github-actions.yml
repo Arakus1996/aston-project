@@ -1,5 +1,4 @@
-name: Tests-aston-project
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: GitHub-actions-aston-project
 on:
   push:
     branches:
