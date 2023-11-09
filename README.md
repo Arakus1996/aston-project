@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 Status of Last Deployment:<br>
-<img src="https://github.com/Arakus1996/aston-project/workflows/GitHub-actions-aston-project/badge.svg?branch=main"><br>
+<img src="https://github.com/arakus1996/aston-project/workflows/GitHub-actions-aston-project/badge.svg?branch=main"><br>
 
 <img src="https://github.com/Arakus1996/aston-project/actions/workflows/GitHub-actions-aston-project/badge.svg"><br>
 
