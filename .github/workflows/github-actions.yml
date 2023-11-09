@@ -1,4 +1,4 @@
-name: GitHub-actions-aston-project
+run-name: GitHub-actions-aston-project
 on:
   push:
     branches:
