@@ -1,21 +1,11 @@
-////router вынести отдельно??
-//// сами роуты тож отдельно
-
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <div>f</div>, ///заменим компонентой реакт пока так
-    children: [{}],
-  },
-  {},
-])
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 export function App() {
   return (
-    <div className='App'>
-      <RouterProvider router={router} />
-    </div>
+    <BrowserRouter basename='/aston-project'>
+      <Routes>
+        <Route path='/' element={<div>HELLLO</div>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
