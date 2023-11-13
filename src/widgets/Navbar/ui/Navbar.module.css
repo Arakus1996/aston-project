@@ -1,0 +1,90 @@
+.navHead {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #1f2326;
+}
+.navLogo {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.801);
+  font-size: 1.8em;
+  padding-right: 10px;
+}
+.findForm {
+  margin: 0 auto;
+  width: 50%;
+  min-width: 100px;
+  display: flex;
+}
+.findForm > input,
+.findForm .btnFindForm {
+  display: block;
+  height: 30px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #0c1013;
+}
+
+.btnFindForm {
+  position: relative;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.logoBtnFind {
+  position: absolute;
+  height: 1.5em;
+  width: 1.5em;
+  fill: rgba(255, 255, 255, 0.659);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btnFindForm:hover .logoBtnFind {
+  fill: #ffda47;
+}
+
+.findForm > input {
+  width: 100%;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.659);
+}
+
+.btnBlock {
+  margin-left: 5px;
+  display: flex;
+}
+.btnBlock > * {
+  margin-left: 5px;
+}
+
+.RegAndEntry {
+  padding-left: 10px;
+}
+.btnReg {
+  height: 40px;
+  width: 90px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btnReg {
+  background-color: rgba(255, 255, 255, 0);
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 0.659);
+}
+.btnReg:hover {
+  color: #ffda47;
+}
+.link {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .btnBlock {
+    display: flex;
+    flex-direction: column;
+  }
+}
