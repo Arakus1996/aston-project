@@ -6,7 +6,7 @@ import { ReactComponent as LogoFind } from './icons/find.svg'
 
 import style from './Navbar.module.css'
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <nav>
       <div className={style.navHead}>
@@ -40,5 +40,3 @@ const Navbar = () => {
     </nav>
   )
 }
-
-export default Navbar
