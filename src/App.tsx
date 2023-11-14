@@ -5,6 +5,8 @@ import { Home } from './pages/home/Home'
 import { Navbar } from './widgets/Navbar/ui/Navbar'
 import { useAppDispatch } from './store/hooks'
 import { getMovies } from './shared/api/moviesApi'
+import { Login } from './pages/Login/Login'
+import { Registration } from './pages/Registration/Registration'
 
 export function App() {
   const dispatch = useAppDispatch()
@@ -17,6 +19,8 @@ export function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/registration' element={<Registration />} />
       </Routes>
     </BrowserRouter>
   )

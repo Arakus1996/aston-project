@@ -20,21 +20,12 @@ export const Navbar = () => {
           </button>
         </div>
         <div className={style.btnBlock}>
-          <Button
-            text='Регистрация'
-            onClick={() => {
-              //заглушка
-              return
-            }}
-            isNotDefaultButton={true}
-          />
-          <Button
-            text='Войти'
-            onClick={() => {
-              //заглушка
-              return
-            }}
-          />
+          <Link className={style.link} to='registration'>
+            <Button text='Регистрация' isNotDefaultButton={true} />
+          </Link>
+          <Link className={style.link} to='login'>
+            <Button text='Войти' />
+          </Link>
         </div>
       </div>
     </nav>
