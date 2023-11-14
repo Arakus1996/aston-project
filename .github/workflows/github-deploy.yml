@@ -1,13 +1,10 @@
-name: GitHub-actions-aston-project
+name: Deploy-aston-project
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 jobs:
-  project-test:
+  project-deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -20,5 +17,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: install modules
         run: npm install
-      - name: lint test
-        run: npm run lint
+      - name: Project deployment
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
