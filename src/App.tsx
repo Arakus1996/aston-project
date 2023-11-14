@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { useEffect } from 'react'
 
 import { Home } from './pages/home/Home'
 import { Navbar } from './widgets/Navbar/ui/Navbar'
@@ -7,7 +8,10 @@ import { getMovies } from './shared/api/moviesApi'
 
 export function App() {
   const dispatch = useAppDispatch()
-  dispatch(getMovies())
+  useEffect(() => {
+    dispatch(getMovies())
+  }, [])
+
   return (
     <BrowserRouter basename='/aston-project'>
       <Navbar />
