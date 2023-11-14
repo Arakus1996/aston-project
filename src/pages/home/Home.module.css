@@ -1,0 +1,8 @@
+.movieCatalog {
+  font-size: 1em;
+}
+@media (max-width: 480px) {
+  .movieCatalog {
+    font-size: 0.8em;
+  }
+}

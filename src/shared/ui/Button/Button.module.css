@@ -1,0 +1,25 @@
+button {
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 400;
+}
+.defaultButton {
+  background-color: #eac83f;
+  border: none;
+  color: #1f2326;
+}
+.notDefaultButton {
+  background-color: #1f232600;
+  border: none;
+  color: rgba(255, 255, 255, 0.801);
+}
+
+.defaultButton:hover {
+  background-color: #ffd735;
+}
+
+.notDefaultButton:hover {
+  color: #ffda47;
+}
