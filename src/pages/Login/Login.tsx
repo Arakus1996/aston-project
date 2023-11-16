@@ -15,17 +15,16 @@ export const Login = () => {
 
   const signInUser = () => {
     const auth = getAuth()
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-          })
-        )
-        navigate('/')
-      })
-      .catch(console.error)
+    signInWithEmailAndPassword(auth, email, password).then(({ user }) => {
+      dispatch(
+        setUser({
+          email: user.email,
+          id: user.uid,
+        })
+      )
+      navigate('/')
+    })
+    //.catch(console.error)
   }
 
   return (
