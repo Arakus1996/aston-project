@@ -1,13 +1,20 @@
 .input {
   box-sizing: border-box;
   border-radius: 10px;
-  margin-bottom: 25px;
   padding: 10px 20px;
   background-color: rgba(255, 255, 255, 0.842);
   border: solid 2px rgba(255, 255, 255, 0.842);
   outline: none;
 }
-
-input:focus {
-  border: solid 2px #fcd22a;
+.inputError {
+  outline: 2px solid red;
+}
+.errorBlock {
+  height: 40px;
+  padding: 5px 0;
+  font-size: 0.85rem;
+  color: red;
+}
+.input:focus {
+  outline: solid 2px #fed83f;
 }

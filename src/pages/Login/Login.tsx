@@ -1,5 +1,5 @@
-import style from './Login.module.css'
+import { LoginForm } from '../../features/AuthForm/LoginForm/LoginForm'
 
 export const Login = () => {
-  return <div>LOG</div>
+  return <LoginForm />
 }

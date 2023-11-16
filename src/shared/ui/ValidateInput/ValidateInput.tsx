@@ -7,20 +7,32 @@ import type { PropsWithChildren } from 'react'
 interface Props {
   register: UseFormRegister<FieldValues>
   error: FieldValues | undefined
-  placeholder?: string
+  setValue?: (value: string) => void
   typeValidation: string
   validation?: RegisterOptions<FieldValues>
+  placeholder?: string
+  inputType?: string
+  value?: string
+  handleOnChange?: (value: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const ValidateInput = (props: PropsWithChildren<Props>) => {
   return (
     <>
       <input
-        className={style.input}
+        className={`${style.input} ${props.error && style.inputError}`}
+        value={props.value}
+        type={props.inputType}
         placeholder={props.placeholder}
-        {...props.register(props.typeValidation, props.validation)}
+        {...props.register(props.typeValidation, {
+          ...props.validation,
+          onChange: props.handleOnChange,
+        })}
+        //onChange={(e) => setValue(e.target.value)}
       />
-      {props.error && <p>{props.error.message}</p>}
+      <div className={style.errorBlock}>
+        {props.error && <p>{props.error.message}</p>}
+      </div>
     </>
   )
 }

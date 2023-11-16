@@ -1,4 +1,4 @@
-import { RegistrationForm } from '../RegistrationForm/RegistrationForm'
+import { RegistrationForm } from '../../features/AuthForm/RegistrationForm/RegistrationForm'
 
 export const Registration = () => {
   return <RegistrationForm />
