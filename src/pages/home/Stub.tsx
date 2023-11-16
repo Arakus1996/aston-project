@@ -1,5 +1,3 @@
-const Stub = () => {
+export const Stub = () => {
   return <div>STUB</div>
 }
-
-export default Stub

@@ -3,8 +3,8 @@ import { useAuth } from '../../shared/hooks/useAuth'
 import { useAppDispatch } from '../../store/hooks'
 import { removeUser } from '../../store/slices/userSlice'
 
+import { Stub } from './Stub'
 import style from './Home.module.css'
-import Stub from './Stub'
 
 export const Home = () => {
   const { isAuth } = useAuth()
