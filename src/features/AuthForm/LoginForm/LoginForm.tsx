@@ -1,67 +1,54 @@
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { PropsWithChildren } from 'react'
 
 import { Button } from '../../../shared/ui/Button/Button'
-import { LoginInput } from '../AuthInputs/LoginInput'
+import { EmailInput } from '../AuthInputs/EmailInput'
 import { PasswordInput } from '../AuthInputs/PasswordInput'
-import { useAppDispatch } from '../../../store/hooks'
-import { setUser } from '../../../store/slices/userSlice'
+import { validateEmail } from '../config/validationConfig'
 
 import style from './LoginForm.module.css'
 
-export const LoginForm = () => {
+import type { InputEvent } from '../../../shared/types/sharedType'
+import type { AuthType as Props } from '../types/types'
+
+export const LoginForm = (props: PropsWithChildren<Props>) => {
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm({
-    mode: 'onSubmit',
+    mode: 'onBlur',
   })
-
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-
-  const dispatch = useAppDispatch()
 
   const onSubmit = handleSubmit(() => {
-    const auth = getAuth()
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        console.log(user)
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            // token: user.accessToken,
-          })
-        )
-      })
-      .catch(console.error)
+    props.onAuth()
   })
 
-  const handleOnChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value)
+  const handleOnChangeEmail = (e: InputEvent) => {
+    props.setEmail(e.target.value)
   }
 
-  const handleOnChangePass = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value)
+  const handleOnChangePass = (e: InputEvent) => {
+    props.setPassword(e.target.value)
   }
 
   return (
     <div className={style.registrationCssave}>
-      <form onSubmit={() => onSubmit()}>
+      <form onSubmit={onSubmit}>
         <h3 className={style.textCenter}>Войти</h3>
-        <LoginInput
+        <EmailInput
           register={register}
-          error={errors.login}
-          value={email}
+          error={errors.email}
+          typeValidation='email'
+          validation={validateEmail}
+          value={props.email}
           handleOnChange={handleOnChangeEmail}
         />
         <PasswordInput
           register={register}
           error={errors.password}
-          value={password}
+          typeValidation='password'
+          value={props.password}
           handleOnChange={handleOnChangePass}
         />
         <Button text='Вход в аккаунт' />

@@ -7,7 +7,6 @@ import { useAppDispatch } from './store/hooks'
 import { getMovies } from './shared/api/moviesApi'
 import { Login } from './pages/Login/Login'
 import { Registration } from './pages/Registration/Registration'
-import { Form } from './features/Form/From'
 
 export function App() {
   const dispatch = useAppDispatch()
@@ -22,7 +21,6 @@ export function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/registration' element={<Registration />} />
-        {/* <Route path='/registration' element={<Form />} /> */}
       </Routes>
     </BrowserRouter>
   )

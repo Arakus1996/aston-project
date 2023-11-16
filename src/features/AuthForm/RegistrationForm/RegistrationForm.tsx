@@ -1,80 +1,68 @@
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
 
 import { Button } from '../../../shared/ui/Button/Button'
-import { LoginInput } from '../AuthInputs/LoginInput'
+import { EmailInput } from '../AuthInputs/EmailInput'
 import {
   validateConfirmPassword,
   validatePassword,
-  validateLogin,
+  validateEmail,
 } from '../config/validationConfig'
 import { PasswordInput } from '../AuthInputs/PasswordInput'
 import { ConfirmPasswordInput } from '../AuthInputs/ConfirmPassInput'
-import { setUser } from '../../../store/slices/userSlice'
-import { useAppDispatch } from '../../../store/hooks'
 
 import style from './RegistrationForm.module.css'
 
-export const RegistrationForm = () => {
+import type { PropsWithChildren } from 'react'
+import type { InputEvent } from '../../../shared/types/sharedType'
+import type { AuthType as Props } from '../types/types'
+
+export const RegistrationForm = (props: PropsWithChildren<Props>) => {
   const {
     register,
     formState: { errors },
     handleSubmit,
     watch,
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onChange',
   })
   const pwd = watch('password')
 
-  const [email, setEmail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const dispatch = useAppDispatch()
   const onSubmit = handleSubmit(() => {
-    const auth = getAuth()
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        console.log(user)
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            // token: user.accessToken,
-          })
-        )
-      })
-      .catch(console.error)
+    props.onAuth()
   })
 
-  const handleOnChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value)
+  const handleOnChangeEmail = (e: InputEvent) => {
+    props.setEmail(e.target.value)
   }
 
-  const handleOnChangePass = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value)
+  const handleOnChangePass = (e: InputEvent) => {
+    props.setPassword(e.target.value)
   }
 
   return (
     <div className={style.registrationCssave}>
-      <form onSubmit={e => onSubmit(e)}>
+      <form onSubmit={onSubmit}>
         <h3 className={style.textCenter}>Регистрация</h3>
-        <LoginInput
+        <EmailInput
           register={register}
-          error={errors.login}
-          validation={validateLogin}
-          value={email}
+          error={errors.email}
+          typeValidation='email'
+          validation={validateEmail}
+          value={props.email}
           handleOnChange={handleOnChangeEmail}
         />
         <PasswordInput
           register={register}
           error={errors.password}
+          typeValidation='password'
           validation={validatePassword}
-          value={password}
+          value={props.password}
           handleOnChange={handleOnChangePass}
         />
         <ConfirmPasswordInput
           register={register}
           error={errors.confirmPassword}
+          typeValidation='confirmPassword'
           validation={validateConfirmPassword(pwd)}
         />
         <Button text='Зарегистрироваться' />
