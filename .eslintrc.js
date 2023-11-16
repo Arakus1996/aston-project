@@ -41,6 +41,11 @@ module.exports = {
     'no-unused-expressions': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
     'react/react-in-jsx-scope': 'off',
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
     camelcase: 'error',
     'import/order': [
       'error',
