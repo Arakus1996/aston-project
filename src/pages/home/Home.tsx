@@ -10,7 +10,6 @@ export const Home = () => {
   const { isAuth } = useAuth()
   const dispatch = useAppDispatch()
 
-  ////////
   return isAuth ? (
     <div className='Заглушка'>
       <Stub />
