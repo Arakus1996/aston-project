@@ -3,7 +3,7 @@ import style from './Button.module.css'
 import type { PropsWithChildren } from 'react'
 
 interface Props {
-  onClick: () => void
+  onClick?: () => void
   text: string
   isNotDefaultButton?: boolean
 }

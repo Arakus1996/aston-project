@@ -55,29 +55,12 @@
 .btnBlock {
   margin-left: 5px;
   display: flex;
+  align-items: center;
 }
 .btnBlock > * {
   margin-left: 5px;
 }
 
-.RegAndEntry {
-  padding-left: 10px;
-}
-.btnReg {
-  height: 40px;
-  width: 90px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.btnReg {
-  background-color: rgba(255, 255, 255, 0);
-  margin-right: 5px;
-  color: rgba(255, 255, 255, 0.659);
-}
-.btnReg:hover {
-  color: #ffda47;
-}
 .link {
   text-decoration: none;
 }

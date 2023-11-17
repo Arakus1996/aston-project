@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_KEY = process.env.REACT_APP_API_MOVIES_KEY
 const moviesApi = axios.create({
   baseURL: `https://www.omdbapi.com`,
   headers: {
