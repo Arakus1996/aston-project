@@ -7,16 +7,13 @@ type Props = {
 }
 
 export const TableLine = (props: Props) => {
-  const value = Array.isArray(props.values)
-    ? props.values.map(value => value.name || value.value).join(', ')
-    : props.values
   return (
     <>
-      {value && (
+      {props.values && (
         <tr>
           <td className={style.table__lineName}>{props.name}</td>
           <td>
-            <div className={props.className}>{value}</div>
+            <div className={props.className}>{props.values}</div>
           </td>
         </tr>
       )}

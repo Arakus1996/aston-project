@@ -36,8 +36,8 @@ export interface FullDescriptionMovie extends ShortDescriptionMovie {
   imdbRating: string
 }
 
-export interface MoviesResponce {
-  Response: boolean
-  Search: ShortDescriptionMovie[]
-  totalResults: string
-}
+// export interface MoviesResponce {
+//   Response: boolean
+//   Search: ShortDescriptionMovie[]
+//   totalResults: string
+// }

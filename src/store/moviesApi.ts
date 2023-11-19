@@ -1,7 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { MoviesResponce } from '../shared/types/sharedType'
-
 const API_KEY = process.env.REACT_APP_API_MOVIES_KEY
 export const moviesApi = createApi({
   reducerPath: 'moviesApi',
