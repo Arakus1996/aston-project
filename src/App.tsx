@@ -5,6 +5,7 @@ import { Navbar } from './widgets/Navbar/ui/Navbar'
 import { Login } from './pages/Login/Login'
 import { Registration } from './pages/Registration/Registration'
 import { Movie } from './pages/Movie/Movie'
+import { Favorites } from './pages/Favorites/Favorites'
 
 export function App() {
   return (
@@ -15,6 +16,7 @@ export function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/registration' element={<Registration />} />
         <Route path='/movie/:id' element={<Movie />} />
+        <Route path='/favorites' element={<Favorites />} />
       </Routes>
     </BrowserRouter>
   )

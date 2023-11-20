@@ -12,8 +12,9 @@ button {
   color: #1f2326;
 }
 .notDefaultButton {
+  box-sizing: border-box;
   background-color: #1f232600;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.706);
   color: rgba(255, 255, 255, 0.801);
 }
 
@@ -23,4 +24,5 @@ button {
 
 .notDefaultButton:hover {
   color: #ffda47;
+  border-color: #ffda47;
 }
