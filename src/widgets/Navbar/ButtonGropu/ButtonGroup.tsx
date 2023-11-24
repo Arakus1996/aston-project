@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { useAppDispatch } from '../../../store/hooks'
 import { Button } from '../../../shared/ui/Button/Button'
-import { removeUser } from '../../../store/slices/userSlice'
+import { signOutUser } from '../../../store/middleware/thunk/userThunk'
 
 export const UserButtonGroup = () => {
   const dispatch = useAppDispatch()
@@ -15,7 +15,7 @@ export const UserButtonGroup = () => {
         <Button text='История' isNotDefaultButton={true} />
       </Link>
       <Link to='/'>
-        <Button text='Выход' onClick={() => dispatch(removeUser())} />
+        <Button text='Выход' onClick={() => dispatch(signOutUser())} />
       </Link>
     </>
   )

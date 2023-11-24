@@ -2,7 +2,7 @@ import style from './TableLine.module.css'
 
 type Props = {
   name: string
-  values: string
+  values?: string
   className?: string
 }
 

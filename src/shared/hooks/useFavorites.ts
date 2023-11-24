@@ -9,15 +9,13 @@ import type { ShortDescriptionMovie } from '../types/sharedType'
 export const useFavorite = (data: ShortDescriptionMovie) => {
   const dispatch = useAppDispatch()
   const isFavorite = !!useAppSelector(store =>
-    store.favoritesReducer.favoriteMovies.find(
-      item => item.imdbID === data.imdbID
-    )
+    store.favoritesReducer.favorites.find(item => item.imdbID === data.imdbID)
   )
   const toggleIsFavorite = () => {
     if (isFavorite) {
       dispatch(removeFavoriteItem(data.imdbID))
     } else {
-      dispatch(addFavoriteItem(data))
+      dispatch(addFavoriteItem(data.imdbID))
     }
   }
   return { isFavorite, toggleIsFavorite }

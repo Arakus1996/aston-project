@@ -1,33 +1,37 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { collection, deleteDoc, doc, getDocs, setDoc } from 'firebase/firestore'
 
-import { ShortDescriptionMovie } from '../../../shared/types/sharedType'
-import { db } from '../../../firebase'
+import { FullDescriptionMovie } from '../../../shared/types/sharedType'
+import { AppDispatch } from '../../store'
+import { toggleLoading } from '../../slices/userSlice'
+import { addToFB, getDataToFB, removeToFB } from '../../firebase/firebase'
+import { fetchById } from '../../moviesApi'
 
-export const getFavorites = createAsyncThunk<ShortDescriptionMovie[]>(
-  'FAVORITES/getFavorites',
-  async function () {
-    const favoritesCol = collection(db, 'favorites')
-    const favoritesSnapshot = await getDocs(favoritesCol)
-    const favoriteMovies = favoritesSnapshot.docs.map(doc => doc.data())
-    const favoriteMoviesResult1 = JSON.stringify(favoriteMovies)
-    const favoriteMoviesResult = JSON.parse(favoriteMoviesResult1) ///Поправить
-    return favoriteMoviesResult
+export const getFavorites = createAsyncThunk<
+  FullDescriptionMovie[],
+  string,
+  { dispatch: AppDispatch }
+>('FAVORITES/getFavorites', async (email, { dispatch }) => {
+  const favoriteData = []
+  const favoriteIds = await getDataToFB(email)
+  for (const id of favoriteIds) {
+    favoriteData.push(await fetchById(id))
+  }
+  dispatch(toggleLoading(false))
+  return favoriteData
+})
+
+export const addFavoriteItem = createAsyncThunk<FullDescriptionMovie, string>(
+  'FAVORITES/addFavoriteItem',
+  async id => {
+    await addToFB(id)
+    return await fetchById(id)
   }
 )
 
-export const addFavoriteItem = createAsyncThunk<
-  ShortDescriptionMovie,
-  ShortDescriptionMovie
->('FAVORITES/addFavoriteItem', async movieData => {
-  await setDoc(doc(db, 'favorites', movieData.imdbID), { ...movieData })
-  return movieData
-})
-
 export const removeFavoriteItem = createAsyncThunk<string, string>(
   'FAVORITES/removeFavoriteItem',
-  async imdbID => {
-    await deleteDoc(doc(db, 'favorites', imdbID))
-    return imdbID
+  async id => {
+    await removeToFB(id)
+    return id
   }
 )

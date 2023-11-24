@@ -14,4 +14,11 @@ export const moviesApi = createApi({
   }),
 })
 
+export const fetchById = async (id: string) => {
+  const response = await fetch(
+    `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`
+  )
+  return await response.json()
+}
+
 export const { useGetMovieByIdQuery, useGetMoviesQuery } = moviesApi

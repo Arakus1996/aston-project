@@ -1,33 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import {
+  createUser,
+  signInUser,
+  signOutUser,
+} from '../middleware/thunk/userThunk'
+
 interface State {
-  email: string | null
-  token: string | null
-  id: string | null
+  email?: string
+  isLoading: boolean
 }
 
 const initialState: State = {
-  email: null,
-  token: null,
-  id: null,
+  email: '',
+  isLoading: false,
 }
 
 const userSlice = createSlice({
-  name: 'USER_ACTION',
+  name: 'USER',
   initialState: initialState,
   reducers: {
-    setUser(state, action) {
-      state.email = action.payload.email
-      state.token = action.payload.token
-      state.id = action.payload.id
+    toggleLoading(state, action) {
+      state.isLoading = action.payload ? true : false
     },
-    removeUser(state) {
-      state.email = null
-      state.token = null
-      state.id = null
-    },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(createUser.fulfilled, (state, action) => {
+        state.email = action.payload
+      })
+      .addCase(signInUser.fulfilled, (state, action) => {
+        state.email = action.payload
+      })
+      .addCase(signOutUser.fulfilled, (state, action) => {
+        state.email = action.payload
+      })
   },
 })
 
-export const { setUser, removeUser } = userSlice.actions
+export const { toggleLoading } = userSlice.actions
 export const userReducer = userSlice.reducer

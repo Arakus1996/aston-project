@@ -12,11 +12,13 @@ interface Props {
 export const FavoriteButton = (props: PropsWithChildren<Props>) => {
   return (
     <div onClick={props.handleClick}>
-      <FavoriteIcon
-        className={
-          props.isActive ? style.favoriteIcon__active : style.favoriteIcon
-        }
-      />
+      {props.children || (
+        <FavoriteIcon
+          className={
+            props.isActive ? style.favoriteIcon__active : style.favoriteIcon
+          }
+        />
+      )}
     </div>
   )
 }

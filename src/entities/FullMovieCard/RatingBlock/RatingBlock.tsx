@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react'
 
 interface Props {
   ratingName: string
-  value: string
+  value?: string
 }
 
 const valueColor = (rating: number) => {

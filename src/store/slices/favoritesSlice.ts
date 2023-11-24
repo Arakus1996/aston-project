@@ -1,18 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { ShortDescriptionMovie } from '../../shared/types/sharedType'
 import {
   addFavoriteItem,
   getFavorites,
   removeFavoriteItem,
 } from '../middleware/thunk/favoritesThunk'
 
+import type { FullDescriptionMovie } from './../../shared/types/sharedType'
+
 type State = {
-  favoriteMovies: ShortDescriptionMovie[]
+  favoriteIds: string[]
+  favorites: FullDescriptionMovie[]
+  isLoading: boolean
 }
 
 const initialState: State = {
-  favoriteMovies: [],
+  favoriteIds: [],
+  favorites: [],
+  isLoading: false,
 }
 
 export const favoritesSlice = createSlice({
@@ -21,16 +26,26 @@ export const favoritesSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(addFavoriteItem.fulfilled, (state, action) => {
-        state.favoriteMovies.push(action.payload)
+      .addCase(getFavorites.fulfilled, (state, action) => {
+        state.favorites = action.payload
       })
+
+      .addCase(addFavoriteItem.fulfilled, (state, action) => {
+        state.favorites.push(action.payload)
+        state.isLoading = false
+      })
+      .addCase(addFavoriteItem.pending, state => {
+        state.isLoading = true
+      })
+
       .addCase(removeFavoriteItem.fulfilled, (state, action) => {
-        state.favoriteMovies = state.favoriteMovies.filter(
+        state.favorites = state.favorites.filter(
           ({ imdbID }) => imdbID !== action.payload
         )
+        state.isLoading = false
       })
-      .addCase(getFavorites.fulfilled, (state, action) => {
-        state.favoriteMovies = action.payload
+      .addCase(removeFavoriteItem.pending, state => {
+        state.isLoading = true
       })
   },
 })

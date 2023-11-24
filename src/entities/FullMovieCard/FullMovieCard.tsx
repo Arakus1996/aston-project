@@ -5,7 +5,6 @@ import { useFavorite } from '../../shared/hooks/useFavorites'
 
 import style from './FullMovieCard.module.css'
 import { RatingBlock } from './RatingBlock/RatingBlock'
-import { parseMovieLength } from './parseMovieLength'
 
 import type { FullDescriptionMovie } from '../../shared/types/sharedType'
 
@@ -37,12 +36,7 @@ export const FullMovieCard = ({ movieData }: Props) => {
           <TableLine name={'Жанр:'} values={movieData.Genre} />
           <TableLine name={'Страна:'} values={movieData.Country} />
           <TableLine name={'Год:'} values={movieData.Year} />
-          <TableLine
-            name={'Длительность:'}
-            values={
-              parseMovieLength(movieData.Runtime) + ` (${movieData.Runtime})`
-            }
-          />
+          <TableLine name={'Длительность:'} values={movieData.Runtime} />
           <TableLine name={'Режисер:'} values={movieData.Director} />
           <TableLine name={'В главных ролях:'} values={movieData.Actors} />
           <TableLine name={'Сценарий:'} values={movieData.Writer} />
