@@ -9,13 +9,11 @@ import {
 import type { FullDescriptionMovie } from './../../shared/types/sharedType'
 
 type State = {
-  favoriteIds: string[]
   favorites: FullDescriptionMovie[]
   isLoading: boolean
 }
 
 const initialState: State = {
-  favoriteIds: [],
   favorites: [],
   isLoading: false,
 }

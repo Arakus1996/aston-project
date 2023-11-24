@@ -2,6 +2,8 @@ import { Table } from '../../shared/ui/Table/Table'
 import { TableLine } from '../../shared/ui/Table/TibleLine/TableLine'
 import { FavoriteButton } from '../../shared/ui/FavoriteButton/FavoriteButton'
 import { useFavorite } from '../../shared/hooks/useFavorites'
+import { useAppSelector } from '../../store/hooks'
+import { Preloader } from '../../shared/ui/Preloader/Preloader'
 
 import style from './FullMovieCard.module.css'
 import { RatingBlock } from './RatingBlock/RatingBlock'
@@ -13,7 +15,10 @@ type Props = {
 }
 
 export const FullMovieCard = ({ movieData }: Props) => {
-  const { isFavorite, toggleIsFavorite } = useFavorite(movieData)
+  const { isFavorite, toggleIsFavorite } = useFavorite(movieData.imdbID)
+  const isLoadingFavorites = useAppSelector(
+    state => state.favoritesReducer.isLoading
+  )
 
   return (
     <div className={style.movie}>
@@ -24,10 +29,14 @@ export const FullMovieCard = ({ movieData }: Props) => {
         <img src={movieData.Poster} className={style.mediaBlock__poster} />
         <div className={style.mediaBlock__raiting}>
           <RatingBlock ratingName={'IMDb'} value={movieData.imdbRating} />
-          <FavoriteButton
-            handleClick={toggleIsFavorite}
-            isActive={isFavorite}
-          />
+          {isLoadingFavorites ? (
+            <Preloader />
+          ) : (
+            <FavoriteButton
+              handleClick={toggleIsFavorite}
+              isActive={isFavorite}
+            />
+          )}
         </div>
       </div>
 

@@ -4,18 +4,16 @@ import {
   removeFavoriteItem,
 } from '../../store/middleware/thunk/favoritesThunk'
 
-import type { ShortDescriptionMovie } from '../types/sharedType'
-
-export const useFavorite = (data: ShortDescriptionMovie) => {
+export const useFavorite = (id: string) => {
   const dispatch = useAppDispatch()
-  const isFavorite = !!useAppSelector(store =>
-    store.favoritesReducer.favorites.find(item => item.imdbID === data.imdbID)
+  const isFavorite = useAppSelector(store =>
+    store.favoritesReducer.favorites.some(item => item.imdbID === id)
   )
   const toggleIsFavorite = () => {
     if (isFavorite) {
-      dispatch(removeFavoriteItem(data.imdbID))
+      dispatch(removeFavoriteItem(id))
     } else {
-      dispatch(addFavoriteItem(data.imdbID))
+      dispatch(addFavoriteItem(id))
     }
   }
   return { isFavorite, toggleIsFavorite }
