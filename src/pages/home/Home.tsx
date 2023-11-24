@@ -1,31 +1,21 @@
 import { MovieCards } from '../../entities/MovieCards/MovieCards'
-import { useAuth } from '../../shared/hooks/useAuth'
-import { useAppDispatch } from '../../store/hooks'
-import { removeUser } from '../../store/slices/userSlice'
 import { useGetMoviesQuery } from '../../store/moviesApi'
 import { Preloader } from '../../shared/ui/Preloader/Preloader'
+import { useAppSelector } from '../../store/hooks'
 
-import { Stub } from './Stub'
 import style from './Home.module.css'
 
 export const Home = () => {
-  const { isAuth } = useAuth()
-  const dispatch = useAppDispatch()
-
   const { data, isLoading } = useGetMoviesQuery('2')
+  const isLoadingUserData = useAppSelector(store => store.userReducer.isLoading)
 
-  if (isLoading) {
+  if (isLoading || isLoadingUserData) {
     return <Preloader />
   }
 
-  return isAuth ? (
-    <div className='Заглушка'>
-      <Stub />
-      <button onClick={() => dispatch(removeUser())}>logout</button>
-    </div>
-  ) : (
+  return (
     <div className={style.movieCatalog}>
-      <MovieCards moviesData={data.Search} />
+      {<MovieCards moviesData={data.Search} />}
     </div>
   )
 }

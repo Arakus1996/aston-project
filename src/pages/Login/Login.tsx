@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 
 import { LoginForm } from '../../features/AuthForm/LoginForm/LoginForm'
-import { setUser } from '../../store/slices/userSlice'
 import { useAppDispatch } from '../../store/hooks'
+import { signInUser } from '../../store/middleware/thunk/userThunk'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -13,18 +12,9 @@ export const Login = () => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  const signInUser = () => {
-    const auth = getAuth()
-    signInWithEmailAndPassword(auth, email, password).then(({ user }) => {
-      dispatch(
-        setUser({
-          email: user.email,
-          id: user.uid,
-        })
-      )
-      navigate('/')
-    })
-    //.catch(console.error)
+  const onAuth = () => {
+    dispatch(signInUser({ email, password }))
+    navigate('/')
   }
 
   return (
@@ -33,7 +23,7 @@ export const Login = () => {
       password={password}
       setEmail={setEmail}
       setPassword={setPassword}
-      onAuth={signInUser}
+      onAuth={onAuth}
     />
   )
 }

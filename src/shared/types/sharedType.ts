@@ -4,7 +4,7 @@ export type InputEvent = React.ChangeEvent<HTMLInputElement>
 
 export type InputType = {
   register: UseFormRegister<FieldValues>
-  error: FieldValues | undefined
+  error?: FieldValues
   typeValidation: string
   setValue?: (value: string) => void
   validation?: RegisterOptions<FieldValues>
@@ -22,22 +22,21 @@ export interface ShortDescriptionMovie {
   Type: string
 }
 
-export interface FullDescriptionMovie extends ShortDescriptionMovie {
-  Genre: string
-  Country: string
+export interface FullDescriptionMovie {
+  Poster: string
+  Title: string
+  Type: string
   Year: string
-  Runtime: string
-  Director: string
-  Actors: string
-  Writer: string
-  Released: string
-  Rated: string
-  Plot: string
-  imdbRating: string
+  imdbID: string
+  Actors?: string
+  Genre?: string
+  Country?: string
+  Runtime?: string
+  Director?: string
+  Writer?: string
+  Released?: string
+  imdbRating?: string
+  imdbVotes?: string
+  Plot?: string
+  Rated?: string
 }
-
-// export interface MoviesResponce {
-//   Response: boolean
-//   Search: ShortDescriptionMovie[]
-//   totalResults: string
-// }

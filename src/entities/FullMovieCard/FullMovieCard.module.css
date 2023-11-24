@@ -23,7 +23,7 @@
 }
 .mediaBlock__raiting {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .mediaBlock__raiting > div {
   margin: 10px 5px;
