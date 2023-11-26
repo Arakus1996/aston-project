@@ -18,7 +18,6 @@ export const MovieCard = ({ movieData }: Props) => {
   const { isAuth } = useAuth()
   const navigate = useNavigate()
   const handleClick = () => navigate(`/movie/${movieData.imdbID}`)
-
   const { isFavorite, toggleIsFavorite } = useFavorite(movieData.imdbID)
   const isLoadingFavorites = useAppSelector(
     state => state.favoritesReducer.isLoading

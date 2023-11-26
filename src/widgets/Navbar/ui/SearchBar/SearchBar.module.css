@@ -1,0 +1,41 @@
+.findForm {
+  position: relative;
+  margin: 0 auto;
+  width: 50%;
+  min-width: 100px;
+  display: flex;
+}
+.findForm > input,
+.findForm .btnFindForm {
+  display: block;
+  height: 30px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #0c1013;
+}
+
+.btnFindForm {
+  position: relative;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.logoBtnFind {
+  position: absolute;
+  height: 1.5em;
+  width: 1.5em;
+  fill: rgba(255, 255, 255, 0.659);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btnFindForm:hover .logoBtnFind {
+  fill: #ffda47;
+}
+
+.findForm > input {
+  width: 100%;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  padding-left: 10px;
+  color: rgba(255, 255, 255, 0.659);
+}

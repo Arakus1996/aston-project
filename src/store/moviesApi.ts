@@ -11,6 +11,9 @@ export const moviesApi = createApi({
     getMovieById: build.query({
       query: id => `?apikey=${API_KEY}&i=${id}`,
     }),
+    getMoviesFromSearch: build.query({
+      query: search => `?apikey=${API_KEY}&s=${search}`,
+    }),
   }),
 })
 
@@ -21,4 +24,8 @@ export const fetchById = async (id: string) => {
   return await response.json()
 }
 
-export const { useGetMovieByIdQuery, useGetMoviesQuery } = moviesApi
+export const {
+  useGetMovieByIdQuery,
+  useGetMoviesQuery,
+  useGetMoviesFromSearchQuery,
+} = moviesApi

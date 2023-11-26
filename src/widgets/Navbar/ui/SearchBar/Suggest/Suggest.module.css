@@ -1,0 +1,23 @@
+.suggest {
+  position: absolute;
+  top: 35px;
+  width: 100%;
+  z-index: 100;
+  background-color: #0c1013f3;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.781);
+}
+
+.field {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.data:hover {
+  background-color: #eac83fee;
+  color: #1f2326;
+}
+
+.error {
+  color: rgba(236, 31, 31, 0.911);
+}

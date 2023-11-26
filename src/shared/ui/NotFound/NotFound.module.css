@@ -1,0 +1,11 @@
+.notFound {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  color: rgba(241, 39, 39, 0.973);
+}
+.notFound > h2 {
+  font-size: 2em;
+  position: absolute;
+  top: 7em;
+}
