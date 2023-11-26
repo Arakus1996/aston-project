@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/aston-project/static/css/main.3a6adf2d.css",
-    "main.js": "/aston-project/static/js/main.03456abd.js",
+    "main.css": "/aston-project/static/css/main.09ac0f0c.css",
+    "main.js": "/aston-project/static/js/main.8dff96e3.js",
     "index.html": "/aston-project/index.html",
     "static/media/preload.svg": "/aston-project/static/media/preload.60b2fc5d4181184e35790c38259af35f.svg",
     "static/media/find.svg": "/aston-project/static/media/find.10da1acaf0159124b47fbdfd8b36f67c.svg",
     "static/media/favorite.svg": "/aston-project/static/media/favorite.b5673b3c9a1d4a1e0c2768db72caa6ef.svg",
-    "main.3a6adf2d.css.map": "/aston-project/static/css/main.3a6adf2d.css.map",
-    "main.03456abd.js.map": "/aston-project/static/js/main.03456abd.js.map"
+    "main.09ac0f0c.css.map": "/aston-project/static/css/main.09ac0f0c.css.map",
+    "main.8dff96e3.js.map": "/aston-project/static/js/main.8dff96e3.js.map"
   },
   "entrypoints": [
-    "static/css/main.3a6adf2d.css",
-    "static/js/main.03456abd.js"
+    "static/css/main.09ac0f0c.css",
+    "static/js/main.8dff96e3.js"
   ]
 }
