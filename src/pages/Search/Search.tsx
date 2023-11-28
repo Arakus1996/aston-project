@@ -8,7 +8,6 @@ import { useGetMoviesFromSearchQuery } from '../../store/moviesApi'
 
 export const Search = () => {
   const isLoadingUserData = useAppSelector(store => store.userReducer.isLoading)
-
   const [searchParams] = useSearchParams()
   const searchValue = searchParams.get('s')
   const { data, isLoading } = useGetMoviesFromSearchQuery(searchValue)
@@ -18,8 +17,8 @@ export const Search = () => {
   }
   return (
     <div>
-      {!data.Search && <NotFound />}
-      {data.Search && <MovieCards moviesData={data.Search} />}
+      {!data && <NotFound />}
+      {data && <MovieCards moviesData={data.Search} />}
     </div>
   )
 }

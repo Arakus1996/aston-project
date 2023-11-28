@@ -5,6 +5,7 @@ import { Button } from '../../../shared/ui/Button/Button'
 import { EmailInput } from '../AuthInputs/EmailInput'
 import { PasswordInput } from '../AuthInputs/PasswordInput'
 import { validateEmail } from '../config/validationConfig'
+import { useChekTheme } from '../../../shared/hooks/useCheckTheme'
 
 import style from './LoginForm.module.css'
 
@@ -12,6 +13,7 @@ import type { InputEvent } from '../../../shared/types/sharedType'
 import type { AuthType as Props } from '../types/types'
 
 export const LoginForm = (props: PropsWithChildren<Props>) => {
+  const theme = useChekTheme(style.lightForm)
   const {
     register,
     formState: { errors },
@@ -34,7 +36,7 @@ export const LoginForm = (props: PropsWithChildren<Props>) => {
 
   return (
     <div className={style.registrationCssave}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className={theme}>
         <h3 className={style.textCenter}>Войти</h3>
         <EmailInput
           register={register}

@@ -1,0 +1,16 @@
+:root {
+  --bg-dark: #171a1f;
+  --bg-light: rgb(255, 255, 255);
+  --text-dark: rgb(255, 255, 255);
+  --text-light: #171a1f;
+}
+
+.layout {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.layout.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}

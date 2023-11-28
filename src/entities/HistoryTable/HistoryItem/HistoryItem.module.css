@@ -1,0 +1,32 @@
+.historyElement {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  min-width: 200px;
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.historyBtn {
+  background: none;
+  border-width: 0 0 1px 0;
+  width: 100%;
+}
+
+.closeBtn {
+  background-color: rgba(218, 27, 27, 0.911);
+  border-radius: 0 10px 10px 0;
+  border: none;
+  width: 50px;
+}
+.historyBtn.light {
+  color: #1f2326;
+}
+
+.historyBtn:hover {
+  color: #eac83f;
+}
+
+.closeBtn:hover {
+  background-color: rgb(238, 27, 27);
+}

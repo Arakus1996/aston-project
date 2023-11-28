@@ -7,6 +7,10 @@
   border-radius: 5px;
   color: rgba(255, 255, 255, 0.781);
 }
+.suggest.light {
+  background-color: rgba(228, 224, 224, 0.842);
+  color: #0c1013f3;
+}
 
 .field {
   padding: 10px;

@@ -8,6 +8,10 @@
   border-radius: 10px;
   overflow: hidden;
 }
+.movieCard.lightCard {
+  background-color: #eac83f;
+}
+
 .movieCard_info {
   padding: 20px;
   font-size: 0.9em;
@@ -16,19 +20,29 @@
   width: 200px;
   height: 100%;
   border-radius: 10px 0 0 10px;
+  cursor: pointer;
 }
+.moviePoster:hover {
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+
 .movieInfo_name {
   font-size: 1.8em;
   font-weight: 500;
-  color: white;
   padding-bottom: 0.5em;
+  cursor: pointer;
 }
+
 .movieInfo_description {
-  color: rgba(255, 255, 255, 0.56);
+  opacity: 0.8;
   padding-bottom: 0.5em;
 }
 .movieInfo_description {
   display: block;
+}
+
+.movieInfo_btn {
+  width: 50px;
 }
 
 @media only screen and (max-width: 600px) {

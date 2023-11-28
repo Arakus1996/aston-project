@@ -11,18 +11,33 @@ button {
   border: none;
   color: #1f2326;
 }
+.defaultButton.light {
+  background-color: #1f2326;
+  color: #eac83f;
+}
 .notDefaultButton {
   box-sizing: border-box;
-  background-color: #1f232600;
+  background: none;
   border: 1px solid rgba(255, 255, 255, 0.706);
   color: rgba(255, 255, 255, 0.801);
+}
+.notDefaultButton.light {
+  border-color: #1f2326;
+  color: #1f2326;
 }
 
 .defaultButton:hover {
   background-color: #ffd735;
 }
+.defaultButton.light:hover {
+  background-color: black;
+}
 
 .notDefaultButton:hover {
   color: #ffda47;
   border-color: #ffda47;
+}
+.notDefaultButton.light:hover {
+  color: white;
+  border-color: white;
 }

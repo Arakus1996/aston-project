@@ -1,4 +1,4 @@
-import { MovieCard } from '../../entities/MovieCards/MovieCard/MovieCard'
+import { MovieCards } from '../../entities/MovieCards/MovieCards'
 import { useAppSelector } from '../../store/hooks'
 
 export const Favorites = () => {
@@ -6,15 +6,5 @@ export const Favorites = () => {
     store => store.favoritesReducer.favorites
   )
 
-  return (
-    <>
-      <h2>Избранное</h2>
-      <div className='container'>
-        {favoriteMovies &&
-          favoriteMovies.map(item => (
-            <MovieCard key={item.imdbID} movieData={item} />
-          ))}
-      </div>
-    </>
-  )
+  return <MovieCards moviesData={favoriteMovies} head={'Избранное'} />
 }

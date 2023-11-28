@@ -8,10 +8,8 @@ type Props = {
 
 export const Table = (props: Props) => {
   return (
-    <div className={style.discriptionBlock__table}>
-      <table>
-        <tbody>{props.children}</tbody>
-      </table>
-    </div>
+    <table className={style.discriptionBlock__table}>
+      <tbody>{props.children}</tbody>
+    </table>
   )
 }

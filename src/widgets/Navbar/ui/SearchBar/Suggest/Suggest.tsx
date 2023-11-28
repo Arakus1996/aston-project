@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useGetMoviesFromSearchQuery } from '../../../../../store/moviesApi'
 import { useDebounce } from '../../../../../shared/hooks/useDebounce'
-import { Preloader } from '../../../../../shared/ui/Preloader/Preloader'
+import { Loader } from '../../../../../shared/ui/Loader/Loader'
 
 import style from './Suggest.module.css'
 
@@ -16,7 +16,8 @@ type Props = {
 
 export const Suggest = ({ searchValue, show }: Props) => {
   const debounceValue = useDebounce(searchValue, 500)
-  const { data, isLoading } = useGetMoviesFromSearchQuery(debounceValue)
+  const { data, isLoading, isFetching } =
+    useGetMoviesFromSearchQuery(debounceValue)
   const foundData = data?.Search
 
   const [showOnHover, setShowOnHover] = useState(false)
@@ -29,10 +30,10 @@ export const Suggest = ({ searchValue, show }: Props) => {
   if ((!searchValue || !show) && !showOnHover) {
     return null
   }
-  if (isLoading || debounceValue !== searchValue) {
+  if (isLoading || isFetching || debounceValue !== searchValue) {
     return (
-      <li>
-        <Preloader />
+      <li className={style.field}>
+        <Loader />
       </li>
     )
   }
