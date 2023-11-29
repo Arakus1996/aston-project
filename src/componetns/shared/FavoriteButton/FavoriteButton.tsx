@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { ReactComponent as FavoriteIcon } from '../../assets/favorite.svg'
+import { ReactComponent as FavoriteIcon } from '../../../assets/favorite.svg'
 import { Loader } from '../Loader/Loader'
 
 import style from './FavoriteButton.module.css'
