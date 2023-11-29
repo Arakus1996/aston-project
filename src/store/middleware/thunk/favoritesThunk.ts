@@ -12,7 +12,6 @@ export const getFavorites = createAsyncThunk<ShortDescriptionMovie[], string>(
     for (const id of favoriteIds) {
       favoriteData.push(await fetchById(id))
     }
-
     return favoriteData
   }
 )

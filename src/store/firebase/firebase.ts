@@ -8,19 +8,16 @@ import {
 } from 'firebase/firestore'
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth'
 
 import { store } from '../store'
-import { app, db } from '../../app/firebase'
+import { auth, db } from '../../app/firebase'
 
 import type { ValueWithId } from '../../types/sharedType'
 
 type Value = string | ValueWithId
-
-const auth = getAuth(app)
 
 export const initCollectionDb = async (email: string) => {
   await setDoc(doc(db, email, 'collections'), {
@@ -67,7 +64,7 @@ export const getDataToDb = async (email: string | null, collection: string) => {
     const favoritesSnap = await getDoc(doc(db, email, 'collections'))
     if (favoritesSnap.exists()) {
       const collections = favoritesSnap.data()
-      return collections[collection]
+      return collections[collection] || []
     }
   }
 }

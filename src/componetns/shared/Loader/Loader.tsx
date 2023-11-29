@@ -9,7 +9,7 @@ export const Loader = () => {
   const theme = useChekTheme(style.light)
   return (
     <div className={classNames(style.exampleOverlay, theme)}>
-      <LoadingSvg classname={style.loading} />
+      <LoadingSvg />
     </div>
   )
 }

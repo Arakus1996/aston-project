@@ -5,7 +5,7 @@ import style from './Preloader.module.css'
 export const Preloader = () => {
   return (
     <div className={style.exampleOverlay}>
-      <LoadingSvg classname={style.loading} />
+      <LoadingSvg />
     </div>
   )
 }

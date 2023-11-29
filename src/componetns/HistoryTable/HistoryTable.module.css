@@ -6,15 +6,6 @@
   padding: 1em 1em;
   margin-top: 20px;
 }
-.head {
-  display: flex;
-  justify-content: center;
-}
-
-.head > h2 {
-  font-size: 2em;
-  font-weight: bold;
-}
 
 button {
   color: white;

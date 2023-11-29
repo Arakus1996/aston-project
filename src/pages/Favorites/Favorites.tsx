@@ -1,4 +1,5 @@
 import { MovieCards } from '../../componetns/MovieCards/MovieCards'
+import { Title } from '../../componetns/shared/Title/Title'
 import { useAppSelector } from '../../store/hooks'
 
 export const Favorites = () => {
@@ -6,5 +7,10 @@ export const Favorites = () => {
     store => store.favoritesReducer.favorites
   )
 
-  return <MovieCards moviesData={favoriteMovies} head={'Избранное'} />
+  return (
+    <>
+      <Title value={'Избранное'} />
+      <MovieCards moviesData={favoriteMovies} />
+    </>
+  )
 }

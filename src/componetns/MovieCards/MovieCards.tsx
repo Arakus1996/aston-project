@@ -6,20 +6,15 @@ import style from './MovieCards.module.css'
 
 type Props = {
   moviesData: ShortDescriptionMovie[]
-  head?: string
 }
 
-export const MovieCards = ({ moviesData, head }: Props) => {
+export const MovieCards = ({ moviesData }: Props) => {
   return (
-    <>
-      <div className={style.head}>
-        <h2>{head}</h2>
-      </div>
-      <div className={style.cardsBlock}>
-        {moviesData
+    <div className={style.cardsBlock}>
+      {moviesData &&
+        moviesData
           .map(item => <MovieCard key={item.imdbID} movieData={item} />)
           .reverse()}
-      </div>
-    </>
+    </div>
   )
 }

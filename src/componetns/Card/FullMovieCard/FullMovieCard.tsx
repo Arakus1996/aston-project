@@ -24,9 +24,6 @@ export const FullMovieCard = ({ movieData }: Props) => {
   )
   const { isAuth } = useAuth()
 
-  if (isLoading) {
-    return <Preloader />
-  }
   return (
     <div className={classNames(style.movie, theme)}>
       <div className={style.discriptionBlock__name}>

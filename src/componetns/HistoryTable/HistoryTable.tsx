@@ -24,12 +24,9 @@ export const HistoryTable = () => {
   }
 
   return (
-    <>
-      <div className={style.head}>
-        <h2>История</h2>
-      </div>
-      <div className={classNames(style.history)}>
-        {history
+    <div className={classNames(style.history)}>
+      {history &&
+        history
           .map(item => (
             <HistoryItem
               key={item.id}
@@ -39,7 +36,6 @@ export const HistoryTable = () => {
             />
           ))
           .reverse()}
-      </div>
-    </>
+    </div>
   )
 }

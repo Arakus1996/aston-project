@@ -30,6 +30,6 @@ export const Button = (props: PropsWithChildren<Props>) => {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  onClick: PropTypes.string,
-  isNotDefaultButton: PropTypes.string,
+  onClick: PropTypes.func,
+  isNotDefaultButton: PropTypes.bool,
 }

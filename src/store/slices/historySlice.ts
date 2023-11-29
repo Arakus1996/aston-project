@@ -5,16 +5,17 @@ import {
   getHistory,
   removeFromHistory,
 } from '../middleware/thunk/historyThunk'
-import { ValueWithId } from '../../types/sharedType'
+
+import type { ValueWithId } from '../../types/sharedType'
 
 type State = {
-  history: ValueWithId[]
   isLoading: boolean
+  history: ValueWithId[]
 }
 
 const initialState: State = {
-  history: [],
   isLoading: false,
+  history: [],
 }
 
 export const historySlice = createSlice({

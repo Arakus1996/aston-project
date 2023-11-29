@@ -1,4 +1,4 @@
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import {
@@ -6,7 +6,7 @@ import {
   initCollectionDb,
   signInUserInDb,
 } from '../../firebase/firebase'
-import { app } from '../../../app/firebase'
+import { auth } from '../../../app/firebase'
 import { setAuthUser, setLoading } from '../../slices/userSlice'
 
 import { getFavorites } from './favoritesThunk'
@@ -16,8 +16,6 @@ type RegisterData = {
   email: string
   password: string
 }
-
-const auth = getAuth(app)
 
 export const createUser = createAsyncThunk(
   'USER/createUser',

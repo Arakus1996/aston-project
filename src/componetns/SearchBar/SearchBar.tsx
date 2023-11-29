@@ -34,8 +34,8 @@ export const SearchBar = () => {
     if (inputRef.current !== null) {
       inputRef.current.blur()
     }
-    navigate(`search?s=${searchValue}`)
     dispatch(addToHistory({ value: searchValue, id: Date.now() }))
+    navigate(`search?s=${searchValue}`)
   }
 
   return (
