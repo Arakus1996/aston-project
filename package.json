@@ -1,7 +1,7 @@
 {
   "name": "aston-project",
   "version": "0.1.0",
-  "homepage": "https://arakus1996.github.io/aston-project",
+  "homepage": "keen-palmier-158688.netlify.app",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
