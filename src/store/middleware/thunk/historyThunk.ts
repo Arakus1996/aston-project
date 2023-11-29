@@ -9,7 +9,10 @@ export const getHistory = createAsyncThunk<ValueWithId[], string>(
   'HISTORY/getHistory',
   async email => {
     const historyData = await getDataToDb(email, 'history')
-    return historyData
+    if (historyData) {
+      return historyData
+    }
+    return []
   }
 )
 

@@ -4,7 +4,6 @@ import { Table } from '../../shared/Table/Table'
 import { TableLine } from '../../shared/Table/TibleLine/TableLine'
 import { FavoriteButton } from '../../shared/FavoriteButton/FavoriteButton'
 import { useFavorite } from '../../../hooks/useFavorites'
-import { Preloader } from '../../shared/Preloader/Preloader'
 import { useChekTheme } from '../../../hooks/useCheckTheme'
 import { useAuth } from '../../../hooks/useAuth'
 

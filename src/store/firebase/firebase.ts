@@ -64,7 +64,7 @@ export const getDataToDb = async (email: string | null, collection: string) => {
     const favoritesSnap = await getDoc(doc(db, email, 'collections'))
     if (favoritesSnap.exists()) {
       const collections = favoritesSnap.data()
-      return collections[collection] || []
+      return collections[collection]
     }
   }
 }
