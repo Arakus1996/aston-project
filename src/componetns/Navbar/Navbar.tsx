@@ -29,8 +29,8 @@ export const Navbar = () => {
         <SearchBar />
         <div className={style.btnBlock}>
           {isAuth ? <UserButtonGroup /> : <GuestButtonGroup />}
+          <ButtonTheme setIsLight={setIsLight} isLight={isLight} />
         </div>
-        <ButtonTheme setIsLight={setIsLight} isLight={isLight} />
       </div>
     </nav>
   )
