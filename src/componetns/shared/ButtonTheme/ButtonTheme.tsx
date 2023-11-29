@@ -1,4 +1,4 @@
-import { ReactComponent as DarkTheme } from '../../../shared/assets/theme.svg'
+import { ReactComponent as DarkTheme } from '../../../assets/theme.svg'
 
 import style from './ButtonTheme.module.css'
 

@@ -1,4 +1,4 @@
-import { ReactComponent as LoadingSvg } from '../../../shared/assets/preload.svg'
+import { ReactComponent as LoadingSvg } from '../../../assets/preload.svg'
 
 import style from './Preloader.module.css'
 

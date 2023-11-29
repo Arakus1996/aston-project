@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { setValue } from '../../store/slices/searchSlice'
 import { addToHistory } from '../../store/middleware/thunk/historyThunk'
-import { ReactComponent as LogoFind } from '../icons/find.svg'
+import { ReactComponent as LogoFind } from '../../assets/find.svg'
 import { useChekTheme } from '../../hooks/useCheckTheme'
 
 import style from './SearchBar.module.css'
