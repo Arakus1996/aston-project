@@ -35,7 +35,6 @@ export const createUserInDb = async (email: string, password: string) => {
 }
 export const signInUserInDb = async (email: string, password: string) => {
   const userCredential = await signInWithEmailAndPassword(auth, email, password)
-
   return userCredential.user.email
 }
 
