@@ -6,6 +6,9 @@
 }
 
 .layout {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
   background-color: var(--bg-dark);
   color: var(--text-dark);
 }
@@ -13,4 +16,14 @@
 .layout.light {
   background-color: var(--bg-light);
   color: var(--text-light);
+}
+
+section {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+body {
+  color: rgba(255, 255, 255, 0.842);
+  background-color: #171a1f;
 }

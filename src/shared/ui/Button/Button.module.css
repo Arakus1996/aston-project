@@ -28,9 +28,11 @@ button {
 
 .defaultButton:hover {
   background-color: #ffd735;
+  color: #1f2326;
 }
 .defaultButton.light:hover {
   background-color: black;
+  color: #ffd735;
 }
 
 .notDefaultButton:hover {

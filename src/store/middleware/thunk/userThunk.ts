@@ -2,9 +2,9 @@ import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import {
-  createUserInFB,
-  initCollectionFB,
-  signInUserInFB,
+  createUserInDb,
+  initCollectionDb,
+  signInUserInDb,
 } from '../../firebase/firebase'
 import { app } from '../../../firebase'
 import { setAuthUser, setLoading } from '../../slices/userSlice'
@@ -22,9 +22,9 @@ const auth = getAuth(app)
 export const createUser = createAsyncThunk(
   'USER/createUser',
   async ({ email, password }: RegisterData) => {
-    const emailDB = await createUserInFB(email, password)
+    const emailDB = await createUserInDb(email, password)
     if (emailDB) {
-      await initCollectionFB(emailDB)
+      await initCollectionDb(emailDB)
       return emailDB
     } else {
       return null
@@ -35,7 +35,7 @@ export const createUser = createAsyncThunk(
 export const signInUser = createAsyncThunk<string, RegisterData>(
   'USER/signInUser',
   async ({ email, password }) => {
-    const emailDB = await signInUserInFB(email, password)
+    const emailDB = await signInUserInDb(email, password)
     if (emailDB) {
       return emailDB
     } else {

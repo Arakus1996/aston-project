@@ -4,4 +4,5 @@ export type AuthType = {
   setEmail: (value: string) => void
   setPassword: (value: string) => void
   onAuth: () => void
+  error?: string
 }

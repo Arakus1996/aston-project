@@ -29,14 +29,16 @@ export const HistoryTable = () => {
         <h2>История</h2>
       </div>
       <div className={classNames(style.history)}>
-        {history.map(item => (
-          <HistoryItem
-            key={item.id}
-            item={item}
-            handleLink={handleLink}
-            handleRemove={handleRemove}
-          />
-        ))}
+        {history
+          .map(item => (
+            <HistoryItem
+              key={item.id}
+              item={item}
+              handleLink={handleLink}
+              handleRemove={handleRemove}
+            />
+          ))
+          .reverse()}
       </div>
     </>
   )

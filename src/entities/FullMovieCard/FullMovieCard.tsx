@@ -6,6 +6,7 @@ import { FavoriteButton } from '../../shared/ui/FavoriteButton/FavoriteButton'
 import { useFavorite } from '../../shared/hooks/useFavorites'
 import { Preloader } from '../../shared/ui/Preloader/Preloader'
 import { useChekTheme } from '../../shared/hooks/useCheckTheme'
+import { useAuth } from '../../shared/hooks/useAuth'
 
 import style from './FullMovieCard.module.css'
 import { RatingBlock } from './RatingBlock/RatingBlock'
@@ -21,6 +22,7 @@ export const FullMovieCard = ({ movieData }: Props) => {
   const { isFavorite, toggleIsFavorite, isLoading } = useFavorite(
     movieData.imdbID
   )
+  const { isAuth } = useAuth()
 
   if (isLoading) {
     return <Preloader />
@@ -29,11 +31,13 @@ export const FullMovieCard = ({ movieData }: Props) => {
     <div className={classNames(style.movie, theme)}>
       <div className={style.discriptionBlock__name}>
         <h2>{movieData.Title}</h2>
-        <FavoriteButton
-          handleClick={toggleIsFavorite}
-          isActive={isFavorite}
-          isLoading={isLoading}
-        />
+        {isAuth && (
+          <FavoriteButton
+            handleClick={toggleIsFavorite}
+            isActive={isFavorite}
+            isLoading={isLoading}
+          />
+        )}
       </div>
 
       <div className={style.mediaBlock}>

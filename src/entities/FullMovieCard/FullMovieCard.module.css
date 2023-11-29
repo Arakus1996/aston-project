@@ -62,11 +62,11 @@
 
 .rating {
   display: inline-block;
-  border: 1px solid #ffda47c1;
+  border: 1px solid #fccf1d;
   padding: 5px;
   font-size: 1.1em;
   text-transform: uppercase;
-  color: #ffda47c1;
+  color: #fccf1d;
 }
 .etcBlock {
   grid-area: etcContent;

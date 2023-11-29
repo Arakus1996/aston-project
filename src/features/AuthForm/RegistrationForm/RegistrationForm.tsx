@@ -67,7 +67,12 @@ export const RegistrationForm = (props: PropsWithChildren<Props>) => {
           typeValidation='confirmPassword'
           validation={validateConfirmPassword(pwd)}
         />
-        <Button text='Зарегистрироваться' />
+        <div className={style.errorForm}>
+          <p className={style.errorForm_message}>{props.error}</p>
+        </div>
+        <div className={style.btnForm}>
+          <Button text='Зарегистрироваться' />
+        </div>
       </form>
     </div>
   )

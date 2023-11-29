@@ -22,13 +22,13 @@ type Value = string | ValueWithId
 
 const auth = getAuth(app)
 
-export const initCollectionFB = async (email: string) => {
+export const initCollectionDb = async (email: string) => {
   await setDoc(doc(db, email, 'collections'), {
     favorites: [],
   })
 }
 
-export const createUserInFB = async (email: string, password: string) => {
+export const createUserInDb = async (email: string, password: string) => {
   const userCredential = await createUserWithEmailAndPassword(
     auth,
     email,
@@ -36,16 +36,17 @@ export const createUserInFB = async (email: string, password: string) => {
   )
   return userCredential.user.email
 }
-export const signInUserInFB = async (email: string, password: string) => {
+export const signInUserInDb = async (email: string, password: string) => {
   const userCredential = await signInWithEmailAndPassword(auth, email, password)
+
   return userCredential.user.email
 }
 
-export const signOutFromFB = async () => {
+export const signOutFromDb = async () => {
   return signOut(auth)
 }
 
-export const addToFB = async (value: Value, collection: string) => {
+export const addToDb = async (value: Value, collection: string) => {
   const { userReducer } = store.getState()
   if (userReducer.email) {
     await updateDoc(doc(db, userReducer.email, 'collections'), {
@@ -53,7 +54,7 @@ export const addToFB = async (value: Value, collection: string) => {
     })
   }
 }
-export const removeToFB = async (value: Value, collection: string) => {
+export const removeToDb = async (value: Value, collection: string) => {
   const { userReducer } = store.getState()
   if (userReducer.email) {
     await updateDoc(doc(db, userReducer.email, 'collections'), {
@@ -61,7 +62,7 @@ export const removeToFB = async (value: Value, collection: string) => {
     })
   }
 }
-export const getDataToFB = async (email: string | null, collection: string) => {
+export const getDataToDb = async (email: string | null, collection: string) => {
   if (email) {
     const favoritesSnap = await getDoc(doc(db, email, 'collections'))
     if (favoritesSnap.exists()) {

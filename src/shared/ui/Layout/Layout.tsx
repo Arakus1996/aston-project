@@ -11,10 +11,10 @@ type Props = {
 export const Layout = ({ children }: Props) => {
   const { isLight } = useContext(ThemeContext)
   return (
-    <main
+    <div
       className={isLight ? `${style.layout} ${style.light}` : `${style.layout}`}
     >
       <section>{children}</section>
-    </main>
+    </div>
   )
 }

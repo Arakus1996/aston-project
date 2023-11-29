@@ -14,6 +14,7 @@ type Props = {
 
 export const HistoryItem = ({ handleLink, handleRemove, item }: Props) => {
   const theme = useChekTheme(style.light)
+
   return (
     <div className={style.historyElement}>
       <button

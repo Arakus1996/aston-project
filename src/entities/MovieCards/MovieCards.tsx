@@ -16,9 +16,9 @@ export const MovieCards = ({ moviesData, head }: Props) => {
         <h2>{head}</h2>
       </div>
       <div className={style.cardsBlock}>
-        {moviesData.map(item => (
-          <MovieCard key={item.imdbID} movieData={item} />
-        ))}
+        {moviesData
+          .map(item => <MovieCard key={item.imdbID} movieData={item} />)
+          .reverse()}
       </div>
     </>
   )

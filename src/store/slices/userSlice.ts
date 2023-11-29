@@ -10,11 +10,13 @@ import {
 interface State {
   email: string | null
   isLoading: boolean
+  error?: string
 }
 
 const initialState: State = {
   email: null,
   isLoading: true,
+  error: '',
 }
 
 const userSlice = createSlice({
@@ -32,21 +34,36 @@ const userSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(createUser.pending, state => {
+        state.error = ''
         state.isLoading = true
       })
       .addCase(createUser.fulfilled, (state, action) => {
         state.email = action.payload
+        state.isLoading = false
+      })
+      .addCase(createUser.rejected, state => {
+        state.error = 'Error Registration'
+        state.isLoading = false
       })
 
       .addCase(signInUser.pending, state => {
+        state.error = ''
         state.isLoading = true
       })
       .addCase(signInUser.fulfilled, (state, action) => {
         state.email = action.payload
+        state.isLoading = false
+      })
+      .addCase(signInUser.rejected, state => {
+        state.error = 'Error Login'
+        state.isLoading = false
       })
 
       .addCase(signOutUser.fulfilled, (state, action) => {
         state.email = action.payload
+      })
+      .addCase(signOutUser.rejected, (state, action) => {
+        state.error = action.error.code
       })
 
       .addCase(getUserData.pending, state => {

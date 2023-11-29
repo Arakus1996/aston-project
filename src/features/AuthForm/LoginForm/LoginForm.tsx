@@ -53,7 +53,12 @@ export const LoginForm = (props: PropsWithChildren<Props>) => {
           value={props.password}
           handleOnChange={handleOnChangePass}
         />
-        <Button text='Вход в аккаунт' />
+        <div className={style.errorForm}>
+          <p className={style.errorForm_message}>{props.error}</p>
+        </div>
+        <div className={style.btnForm}>
+          <Button text='Вход в аккаунт' />
+        </div>
       </form>
     </div>
   )

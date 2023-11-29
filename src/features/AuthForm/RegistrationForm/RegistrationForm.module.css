@@ -26,11 +26,26 @@
   margin-bottom: 30px;
 }
 
+.btnForm {
+  display: flex;
+  justify-content: center;
+}
+
 .errorValidation {
   height: 35px;
   padding: 5px;
   font-size: 0.9em;
   color: rgba(233, 46, 46, 0.875);
+}
+
+.errorForm {
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+}
+.errorForm_message {
+  font-size: 1em;
+  color: rgb(233, 46, 46);
 }
 
 @media (max-width: 576px) {
