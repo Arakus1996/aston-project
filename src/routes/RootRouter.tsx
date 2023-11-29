@@ -27,7 +27,7 @@ export function RootRouter() {
   }
 
   return (
-    <BrowserRouter basename='/aston-project'>
+    <BrowserRouter>
       <ErrorBoundary FallbackComponent={Fallback}>
         <ThemeProvider>
           <Layout>
