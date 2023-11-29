@@ -1,14 +1,20 @@
+.favBtn svg {
+  height: 40px;
+  width: 40px;
+}
+
 .favoriteIcon {
   fill: rgba(255, 255, 255, 0);
-  stroke: rgba(255, 255, 255, 0.83);
+  stroke: #fb7185;
+  stroke-width: 1px;
   cursor: pointer;
 }
 
 .favoriteIcon:hover {
-  stroke: #ffda47;
+  stroke-width: 1.5px;
 }
 
 .favoriteIcon__active {
-  fill: #ffda47;
+  fill: #fb7185;
   cursor: pointer;
 }

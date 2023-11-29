@@ -28,6 +28,7 @@ export interface FullDescriptionMovie {
   Type: string
   Year: string
   imdbID: string
+
   Actors?: string
   Genre?: string
   Country?: string
@@ -39,4 +40,15 @@ export interface FullDescriptionMovie {
   imdbVotes?: string
   Plot?: string
   Rated?: string
+  Awards?: string
+  Language?: string
+  Metascore?: string
+  Ratings?: string
+  Response?: string
+  totalSeasons?: string
+}
+
+export type ValueWithId = {
+  value: string
+  id: number
 }

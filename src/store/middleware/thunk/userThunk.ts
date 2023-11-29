@@ -1,52 +1,75 @@
-import { getAuth, signOut } from 'firebase/auth'
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { AppDispatch } from '../../store'
-import { toggleLoading } from '../../slices/userSlice'
 import {
   createUserInFB,
   initCollectionFB,
   signInUserInFB,
 } from '../../firebase/firebase'
+import { app } from '../../../firebase'
+import { setAuthUser, setLoading } from '../../slices/userSlice'
 
 import { getFavorites } from './favoritesThunk'
+import { getHistory } from './historyThunk'
 
 type RegisterData = {
   email: string
   password: string
 }
 
+const auth = getAuth(app)
+
 export const createUser = createAsyncThunk(
   'USER/createUser',
   async ({ email, password }: RegisterData) => {
     const emailDB = await createUserInFB(email, password)
     if (emailDB) {
-      initCollectionFB(emailDB)
+      await initCollectionFB(emailDB)
       return emailDB
+    } else {
+      return null
     }
   }
 )
 
-export const signInUser = createAsyncThunk<
-  string,
-  RegisterData,
-  { dispatch: AppDispatch }
->('USER/signInUser', async ({ email, password }, { dispatch }) => {
-  dispatch(toggleLoading(true))
-  const emailDB = await signInUserInFB(email, password)
-  if (emailDB) {
-    dispatch(getFavorites(emailDB))
-    return emailDB
-  } else {
-    throw new Error('email error')
+export const signInUser = createAsyncThunk<string, RegisterData>(
+  'USER/signInUser',
+  async ({ email, password }) => {
+    const emailDB = await signInUserInFB(email, password)
+    if (emailDB) {
+      return emailDB
+    } else {
+      throw new Error('email error')
+    }
   }
-})
+)
 
-export const signOutUser = createAsyncThunk<string, void>(
+export const signOutUser = createAsyncThunk<string | null, void>(
   'USER/signOutUser',
   async () => {
-    const auth = getAuth()
     await signOut(auth)
-    return ''
+    return null
+  }
+)
+
+export const checkAuth = createAsyncThunk<void, void>(
+  'USER/checkAuth',
+  (_, { dispatch }) => {
+    onAuthStateChanged(auth, async user => {
+      if (user && user.email) {
+        await dispatch(getUserData(user.email))
+      } else {
+        dispatch(setAuthUser(null))
+        dispatch(setLoading(false))
+      }
+    })
+  }
+)
+export const getUserData = createAsyncThunk<void, string>(
+  'USER/getUserData',
+  async (email, { dispatch }) => {
+    await dispatch(getFavorites(email))
+    await dispatch(getHistory(email))
+    dispatch(setAuthUser(email))
   }
 )

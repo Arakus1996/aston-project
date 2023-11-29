@@ -1,16 +1,20 @@
 import { useNavigate } from 'react-router-dom'
 import { ChangeEvent, SyntheticEvent, useState, useRef } from 'react'
+import classNames from 'classnames'
 
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
 import { setValue } from '../../../../store/slices/searchSlice'
-
+import { addToHistory } from '../../../../store/middleware/thunk/historyThunk'
 import { ReactComponent as LogoFind } from '../icons/find.svg'
+import { useChekTheme } from '../../../../shared/hooks/useCheckTheme'
 
 import style from './SearchBar.module.css'
 import { SuggestContainer } from './Suggest/SuggestContainer'
 
 export const SearchBar = () => {
+  const theme = useChekTheme(style.light)
   const inputRef = useRef<HTMLInputElement>(null)
+
   const [showFields, setShowFields] = useState(false)
   const navigate = useNavigate()
 
@@ -20,6 +24,7 @@ export const SearchBar = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setValue(e.target.value))
   }
+
   const handleSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!searchValue) {
@@ -30,6 +35,7 @@ export const SearchBar = () => {
       inputRef.current.blur()
     }
     navigate(`search?s=${searchValue}`)
+    dispatch(addToHistory({ value: searchValue, id: Date.now() }))
   }
 
   return (
@@ -41,8 +47,9 @@ export const SearchBar = () => {
         onFocus={() => setShowFields(true)}
         onBlur={() => setShowFields(false)}
         placeholder='Поиск...'
+        className={theme}
       />
-      <button className={style.btnFindForm}>
+      <button className={classNames(style.btnFindForm, theme)}>
         <LogoFind className={style.logoBtnFind} />
       </button>
       <SuggestContainer searchValue={searchValue} show={showFields} />

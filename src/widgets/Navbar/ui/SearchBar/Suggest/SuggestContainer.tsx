@@ -1,3 +1,7 @@
+import classNames from 'classnames'
+
+import { useChekTheme } from '../../../../../shared/hooks/useCheckTheme'
+
 import { Suggest } from './Suggest'
 import style from './Suggest.module.css'
 
@@ -9,8 +13,9 @@ type Props = {
 }
 
 export const SuggestContainer = (props: PropsWithChildren<Props>) => {
+  const theme = useChekTheme(style.light)
   return (
-    <ul className={style.suggest}>
+    <ul className={classNames(style.suggest, theme)}>
       <Suggest {...props} />
     </ul>
   )

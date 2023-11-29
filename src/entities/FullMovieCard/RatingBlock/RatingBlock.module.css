@@ -1,14 +1,16 @@
 .rating {
   padding: 7px;
-  border: 1px solid #ffda47c1;
+  border: 2px solid #ffda47;
   border-radius: 1em;
-  color: #ffda47c1;
+  color: #ffda47;
 }
 .ratingName {
+  font-weight: bold;
   padding-right: 5px;
-  font-size: 1.1em;
+  font-size: 1.6em;
 }
 .ratingValue {
-  font-size: 1.3em;
+  font-weight: bold;
+  font-size: 2em;
   font-weight: bold;
 }

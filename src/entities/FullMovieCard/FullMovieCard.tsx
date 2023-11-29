@@ -1,9 +1,11 @@
+import classNames from 'classnames'
+
 import { Table } from '../../shared/ui/Table/Table'
 import { TableLine } from '../../shared/ui/Table/TibleLine/TableLine'
 import { FavoriteButton } from '../../shared/ui/FavoriteButton/FavoriteButton'
 import { useFavorite } from '../../shared/hooks/useFavorites'
-import { useAppSelector } from '../../store/hooks'
 import { Preloader } from '../../shared/ui/Preloader/Preloader'
+import { useChekTheme } from '../../shared/hooks/useCheckTheme'
 
 import style from './FullMovieCard.module.css'
 import { RatingBlock } from './RatingBlock/RatingBlock'
@@ -15,28 +17,29 @@ type Props = {
 }
 
 export const FullMovieCard = ({ movieData }: Props) => {
-  const { isFavorite, toggleIsFavorite } = useFavorite(movieData.imdbID)
-  const isLoadingFavorites = useAppSelector(
-    state => state.favoritesReducer.isLoading
+  const theme = useChekTheme(style.lightCard)
+  const { isFavorite, toggleIsFavorite, isLoading } = useFavorite(
+    movieData.imdbID
   )
 
+  if (isLoading) {
+    return <Preloader />
+  }
   return (
-    <div className={style.movie}>
+    <div className={classNames(style.movie, theme)}>
       <div className={style.discriptionBlock__name}>
         <h2>{movieData.Title}</h2>
+        <FavoriteButton
+          handleClick={toggleIsFavorite}
+          isActive={isFavorite}
+          isLoading={isLoading}
+        />
       </div>
+
       <div className={style.mediaBlock}>
         <img src={movieData.Poster} className={style.mediaBlock__poster} />
         <div className={style.mediaBlock__raiting}>
           <RatingBlock ratingName={'IMDb'} value={movieData.imdbRating} />
-          {isLoadingFavorites ? (
-            <Preloader />
-          ) : (
-            <FavoriteButton
-              handleClick={toggleIsFavorite}
-              isActive={isFavorite}
-            />
-          )}
         </div>
       </div>
 
@@ -51,13 +54,12 @@ export const FullMovieCard = ({ movieData }: Props) => {
           <TableLine name={'Сценарий:'} values={movieData.Writer} />
           <TableLine name={'Премьера в Мире:'} values={movieData.Released} />
           <TableLine
-            className={style.rating}
-            name={'Рейтинг MPAA:'}
+            name={'Рейтин mpaa:'}
             values={movieData.Rated}
+            className={style.rating}
           />
         </Table>
       </div>
-
       <div className={style.etcBlock}>
         <section className={style.etcBlock__discription}>
           <h3>Описание</h3>

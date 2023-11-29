@@ -1,7 +1,11 @@
 .exampleOverlay {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 200px;
+}
+
+.exampleOverlay svg {
+  width: 30%;
+  height: 30%;
 }

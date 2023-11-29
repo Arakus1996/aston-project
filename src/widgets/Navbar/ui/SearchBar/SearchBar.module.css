@@ -12,6 +12,21 @@
   box-sizing: border-box;
   border: none;
   background-color: #0c1013;
+  color: rgba(255, 255, 255, 0.659);
+}
+
+.findForm > input.light,
+.findForm .btnFindForm.light {
+  display: block;
+  height: 30px;
+  box-sizing: border-box;
+  border: none;
+  background-color: white;
+  color: #0c1013;
+}
+
+.findForm .btnFindForm.light .logoBtnFind {
+  fill: #0c1013;
 }
 
 .btnFindForm {
@@ -37,5 +52,4 @@
   outline: none;
   border-radius: 5px 0 0 5px;
   padding-left: 10px;
-  color: rgba(255, 255, 255, 0.659);
 }

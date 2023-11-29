@@ -6,10 +6,10 @@ import {
   removeFavoriteItem,
 } from '../middleware/thunk/favoritesThunk'
 
-import type { FullDescriptionMovie } from './../../shared/types/sharedType'
+import type { ShortDescriptionMovie } from './../../shared/types/sharedType'
 
 type State = {
-  favorites: FullDescriptionMovie[]
+  favorites: ShortDescriptionMovie[]
   isLoading: boolean
 }
 

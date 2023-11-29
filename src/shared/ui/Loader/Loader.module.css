@@ -1,0 +1,13 @@
+.exampleOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.exampleOverlay.light svg {
+  stroke: black;
+}
+
+.exampleOverlay svg {
+  width: 100%;
+}

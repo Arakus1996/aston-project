@@ -1,5 +1,3 @@
-import style from './TableLine.module.css'
-
 type Props = {
   name: string
   values?: string
@@ -11,7 +9,7 @@ export const TableLine = (props: Props) => {
     <>
       {props.values && (
         <tr>
-          <td className={style.table__lineName}>{props.name}</td>
+          <td>{props.name}</td>
           <td>
             <div className={props.className}>{props.values}</div>
           </td>

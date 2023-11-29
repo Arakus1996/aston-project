@@ -10,6 +10,5 @@ export const Home = () => {
   if (isLoading || isLoadingUserData) {
     return <Preloader />
   }
-
-  return <MovieCards moviesData={data.Search} />
+  return data && <MovieCards moviesData={data.Search} />
 }

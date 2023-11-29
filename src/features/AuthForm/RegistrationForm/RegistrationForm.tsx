@@ -9,6 +9,7 @@ import {
 } from '../config/validationConfig'
 import { PasswordInput } from '../AuthInputs/PasswordInput'
 import { ConfirmPasswordInput } from '../AuthInputs/ConfirmPassInput'
+import { useChekTheme } from '../../../shared/hooks/useCheckTheme'
 
 import style from './RegistrationForm.module.css'
 
@@ -17,6 +18,7 @@ import type { InputEvent } from '../../../shared/types/sharedType'
 import type { AuthType as Props } from '../types/types'
 
 export const RegistrationForm = (props: PropsWithChildren<Props>) => {
+  const theme = useChekTheme(style.lightForm)
   const {
     register,
     formState: { errors },
@@ -41,7 +43,7 @@ export const RegistrationForm = (props: PropsWithChildren<Props>) => {
 
   return (
     <div className={style.registrationCssave}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className={theme}>
         <h3 className={style.textCenter}>Регистрация</h3>
         <EmailInput
           register={register}

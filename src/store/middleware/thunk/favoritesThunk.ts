@@ -1,29 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { FullDescriptionMovie } from '../../../shared/types/sharedType'
-import { AppDispatch } from '../../store'
-import { toggleLoading } from '../../slices/userSlice'
+import { ShortDescriptionMovie } from '../../../shared/types/sharedType'
 import { addToFB, getDataToFB, removeToFB } from '../../firebase/firebase'
 import { fetchById } from '../../moviesApi'
 
-export const getFavorites = createAsyncThunk<
-  FullDescriptionMovie[],
-  string,
-  { dispatch: AppDispatch }
->('FAVORITES/getFavorites', async (email, { dispatch }) => {
-  const favoriteData = []
-  const favoriteIds = await getDataToFB(email)
-  for (const id of favoriteIds) {
-    favoriteData.push(await fetchById(id))
-  }
-  dispatch(toggleLoading(false))
-  return favoriteData
-})
+export const getFavorites = createAsyncThunk<ShortDescriptionMovie[], string>(
+  'FAVORITES/getFavorites',
+  async email => {
+    const favoriteData = []
+    const favoriteIds = await getDataToFB(email, 'favorites')
+    for (const id of favoriteIds) {
+      favoriteData.push(await fetchById(id))
+    }
 
-export const addFavoriteItem = createAsyncThunk<FullDescriptionMovie, string>(
+    return favoriteData
+  }
+)
+
+export const addFavoriteItem = createAsyncThunk<ShortDescriptionMovie, string>(
   'FAVORITES/addFavoriteItem',
   async id => {
-    await addToFB(id)
+    await addToFB(id, 'favorites')
     return await fetchById(id)
   }
 )
@@ -31,7 +28,7 @@ export const addFavoriteItem = createAsyncThunk<FullDescriptionMovie, string>(
 export const removeFavoriteItem = createAsyncThunk<string, string>(
   'FAVORITES/removeFavoriteItem',
   async id => {
-    await removeToFB(id)
+    await removeToFB(id, 'favorites')
     return id
   }
 )
