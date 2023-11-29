@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-import { transformGetMoviesResponce } from './rtkquery/transfromData'
+import { transformGetMoviesResponce } from './transfromData'
 
 const API_KEY = process.env.REACT_APP_API_MOVIES_KEY
 

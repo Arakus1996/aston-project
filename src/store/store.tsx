@@ -4,7 +4,7 @@ import { userReducer } from './slices/userSlice'
 import { favoritesReducer } from './slices/favoritesSlice'
 import { historyReducer } from './slices/historySlice'
 import { searchReducer } from './slices/searchSlice'
-import { moviesApi } from './moviesApi'
+import { moviesApi } from './rtkquery/moviesApi'
 import { loggerMiddleware } from './middleware/logger'
 
 const rootReducer = combineReducers({

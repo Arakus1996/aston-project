@@ -4,7 +4,7 @@ import { MovieCards } from '../../componetns/MovieCards/MovieCards'
 import { NotFound } from '../../componetns/shared/NotFound/NotFound'
 import { Preloader } from '../../componetns/shared/Preloader/Preloader'
 import { useAppSelector } from '../../store/hooks'
-import { useGetMoviesFromSearchQuery } from '../../store/moviesApi'
+import { useGetMoviesFromSearchQuery } from '../../store/rtkquery/moviesApi'
 
 export const Search = () => {
   const isLoadingUserData = useAppSelector(store => store.userReducer.isLoading)

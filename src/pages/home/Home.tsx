@@ -1,5 +1,5 @@
 import { MovieCards } from '../../componetns/MovieCards/MovieCards'
-import { useGetMoviesQuery } from '../../store/moviesApi'
+import { useGetMoviesQuery } from '../../store/rtkquery/moviesApi'
 import { Preloader } from '../../componetns/shared/Preloader/Preloader'
 import { useAppSelector } from '../../store/hooks'
 

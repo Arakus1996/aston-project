@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useGetMoviesFromSearchQuery } from '../../../store/moviesApi'
+import { useGetMoviesFromSearchQuery } from '../../../store/rtkquery/moviesApi'
 import { useDebounce } from '../../../hooks/useDebounce'
 import { Loader } from '../../shared/Loader/Loader'
 

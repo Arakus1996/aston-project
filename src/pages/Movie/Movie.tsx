@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 
 import { FullMovieCard } from '../../componetns/Card/FullMovieCard/FullMovieCard'
-import { useGetMovieByIdQuery } from '../../store/moviesApi'
+import { useGetMovieByIdQuery } from '../../store/rtkquery/moviesApi'
 import { Preloader } from '../../componetns/shared/Preloader/Preloader'
 
 export const Movie = () => {

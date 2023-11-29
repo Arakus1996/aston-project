@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { ShortDescriptionMovie } from '../../../types/sharedType'
 import { addToDb, getDataToDb, removeToDb } from '../../firebase/firebase'
-import { fetchById } from '../../moviesApi'
+import { fetchById } from '../../rtkquery/moviesApi'
 
 export const getFavorites = createAsyncThunk<ShortDescriptionMovie[], string>(
   'FAVORITES/getFavorites',
