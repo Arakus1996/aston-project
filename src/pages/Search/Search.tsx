@@ -1,8 +1,8 @@
 import { useSearchParams } from 'react-router-dom'
 
-import { MovieCards } from '../../entities/MovieCards/MovieCards'
-import { NotFound } from '../../shared/ui/NotFound/NotFound'
-import { Preloader } from '../../shared/ui/Preloader/Preloader'
+import { MovieCards } from '../../componetns/MovieCards/MovieCards'
+import { NotFound } from '../../componetns/shared/NotFound/NotFound'
+import { Preloader } from '../../componetns/shared/Preloader/Preloader'
 import { useAppSelector } from '../../store/hooks'
 import { useGetMoviesFromSearchQuery } from '../../store/moviesApi'
 

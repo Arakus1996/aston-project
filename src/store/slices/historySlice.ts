@@ -5,7 +5,7 @@ import {
   getHistory,
   removeFromHistory,
 } from '../middleware/thunk/historyThunk'
-import { ValueWithId } from '../../shared/types/sharedType'
+import { ValueWithId } from '../../types/sharedType'
 
 type State = {
   history: ValueWithId[]

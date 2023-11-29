@@ -1,4 +1,4 @@
-import { ShortDescriptionMovie } from '../../shared/types/sharedType'
+import { ShortDescriptionMovie } from '../../types/sharedType'
 
 type Response = {
   Response: string

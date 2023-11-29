@@ -14,9 +14,9 @@ import {
 } from 'firebase/auth'
 
 import { store } from '../store'
-import { app, db } from '../../firebase'
+import { app, db } from '../../app/firebase'
 
-import type { ValueWithId } from '../../shared/types/sharedType'
+import type { ValueWithId } from '../../types/sharedType'
 
 type Value = string | ValueWithId
 

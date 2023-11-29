@@ -4,10 +4,10 @@ import './index.css'
 import 'reset-css'
 import { Provider } from 'react-redux'
 
-import './firebase'
+import './app/firebase'
 
 import { store } from './store/store'
-import { App } from './App'
+import { App } from './app/App'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(

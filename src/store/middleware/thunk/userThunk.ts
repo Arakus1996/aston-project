@@ -6,7 +6,7 @@ import {
   initCollectionDb,
   signInUserInDb,
 } from '../../firebase/firebase'
-import { app } from '../../../firebase'
+import { app } from '../../../app/firebase'
 import { setAuthUser, setLoading } from '../../slices/userSlice'
 
 import { getFavorites } from './favoritesThunk'

@@ -1,4 +1,4 @@
-import { MovieCards } from '../../entities/MovieCards/MovieCards'
+import { MovieCards } from '../../componetns/MovieCards/MovieCards'
 import { useAppSelector } from '../../store/hooks'
 
 export const Favorites = () => {

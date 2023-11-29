@@ -6,7 +6,7 @@ import {
   removeFavoriteItem,
 } from '../middleware/thunk/favoritesThunk'
 
-import type { ShortDescriptionMovie } from './../../shared/types/sharedType'
+import type { ShortDescriptionMovie } from '../../types/sharedType'
 
 type State = {
   favorites: ShortDescriptionMovie[]

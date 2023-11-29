@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
-import { LoginForm } from '../../features/AuthForm/LoginForm/LoginForm'
+import { LoginForm } from '../../componetns/Forms/LoginForm/LoginForm'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { signInUser } from '../../store/middleware/thunk/userThunk'
 
@@ -11,7 +10,6 @@ export const Login = () => {
 
   const dispatch = useAppDispatch()
   const authError = useAppSelector(state => state.userReducer.error)
-  const navigate = useNavigate()
 
   const onAuth = () => {
     dispatch(signInUser({ email, password }))

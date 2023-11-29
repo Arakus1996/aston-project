@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
-import { ValueWithId } from '../../../shared/types/sharedType'
+import { ValueWithId } from '../../../types/sharedType'
 import { addToDb, getDataToDb, removeToDb } from '../../firebase/firebase'
 
 type ID = string | number

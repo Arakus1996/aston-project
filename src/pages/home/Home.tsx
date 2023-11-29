@@ -1,6 +1,6 @@
-import { MovieCards } from '../../entities/MovieCards/MovieCards'
+import { MovieCards } from '../../componetns/MovieCards/MovieCards'
 import { useGetMoviesQuery } from '../../store/moviesApi'
-import { Preloader } from '../../shared/ui/Preloader/Preloader'
+import { Preloader } from '../../componetns/shared/Preloader/Preloader'
 import { useAppSelector } from '../../store/hooks'
 
 export const Home = () => {
