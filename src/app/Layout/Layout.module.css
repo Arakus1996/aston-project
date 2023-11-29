@@ -11,6 +11,7 @@
   min-height: 100vh;
   background-color: var(--bg-dark);
   color: var(--text-dark);
+  font-family: 'Roboto', sans-serif;
 }
 
 .layout.light {
