@@ -22,7 +22,7 @@ Status of Last Deployment:<br>
       Глупые: [ValidateIput](https://github.com/Arakus1996/aston-project/blob/main/src/componetns/shared/ValidateInput/ValidateInput.tsx), [ButtonTheme](https://github.com/Arakus1996/aston-project/blob/main/src/componetns/shared/ButtonTheme/ButtonTheme.tsx) и т.д.
 - [x] Есть **рендеринг списков**. [MovieCards](https://github.com/Arakus1996/aston-project/blob/main/src/componetns/MovieCards/MovieCards.tsx) и т.д.
 - [x] Реализована хотя бы одна **форма**. [LoginForm](https://github.com/Arakus1996/aston-project/blob/main/src/componetns/Forms/LoginForm/LoginForm.tsx) и т.д.
-- [x] Есть применение Контекст **API**. [ThemeContext](https://github.com/Arakus1996/aston-project/blob/main/src/app/theme/ThemeProvider.tsx)
+- [x] Есть применение **Контекст API**. [ThemeContext](https://github.com/Arakus1996/aston-project/blob/main/src/app/theme/ThemeProvider.tsx)
 - [x] Есть применение **предохранителя**. ErrorBoundary в [App](https://github.com/Arakus1996/aston-project/blob/main/src/routes/RootRouter.tsx)
 - [x] Есть хотя бы один **кастомный хук**. [UseDebounce](https://github.com/Arakus1996/aston-project/blob/main/src/hooks/useDebounce.ts) и т.д
 - [x] Хотя бы несколько компонентов используют **PropTypes**. [MovieCard](https://github.com/Arakus1996/aston-project/blob/main/src/componetns/Card/MovieCard/MovieCard.tsx), [Button](https://github.com/Arakus1996/aston-project/blob/main/src/componetns/shared/Button/Button.tsx) и т.д.
