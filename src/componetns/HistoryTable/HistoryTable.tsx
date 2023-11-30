@@ -6,6 +6,7 @@ import { removeFromHistory } from '../../store/middleware/thunk/historyThunk'
 import { setValue } from '../../store/slices/searchSlice'
 import { ValueWithId } from '../../types/sharedType'
 import { HistoryItem } from '../HistoryItem/HistoryItem'
+import { NoDataComponent } from '../shared/NoDataInfo/NoDataInfo'
 
 import style from './HistoryTable.module.css'
 
@@ -23,19 +24,22 @@ export const HistoryTable = () => {
     dispatch(removeFromHistory(value))
   }
 
+  if (!history.length) {
+    return <NoDataComponent value='Пусто' />
+  }
+
   return (
     <div className={classNames(style.history)}>
-      {history &&
-        history
-          .map(item => (
-            <HistoryItem
-              key={item.id}
-              item={item}
-              handleLink={handleLink}
-              handleRemove={handleRemove}
-            />
-          ))
-          .reverse()}
+      {history
+        .map(item => (
+          <HistoryItem
+            key={item.id}
+            item={item}
+            handleLink={handleLink}
+            handleRemove={handleRemove}
+          />
+        ))
+        .reverse()}
     </div>
   )
 }

@@ -9,16 +9,26 @@ import { useGetMoviesFromSearchQuery } from '../../store/rtkquery/moviesApi'
 export const Search = () => {
   const isLoadingUserData = useAppSelector(store => store.userReducer.isLoading)
   const [searchParams] = useSearchParams()
-  const searchValue = searchParams.get('s')
-  const { data, isLoading } = useGetMoviesFromSearchQuery(searchValue)
+  const page = Number(searchParams.get('page')) || 1
+  const search = searchParams.get('s')
+  const { data, isLoading, isFetching } = useGetMoviesFromSearchQuery({
+    search,
+    page,
+  })
 
-  if (isLoading || isLoadingUserData) {
+  if (isLoading || isLoadingUserData || isFetching) {
     return <Preloader />
   }
   return (
     <div>
       {!data && <NotFound />}
-      {data && <MovieCards moviesData={data.Search} />}
+      {data && (
+        <MovieCards
+          moviesData={data.Search}
+          totalResults={Number(data.totalResults)}
+          page={page}
+        />
+      )}
     </div>
   )
 }

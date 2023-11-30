@@ -15,9 +15,12 @@ type Props = {
 }
 
 export const Suggest = ({ searchValue, show }: Props) => {
-  const debounceValue = useDebounce(searchValue, 500)
-  const { data, isLoading, isFetching } =
-    useGetMoviesFromSearchQuery(debounceValue)
+  const page = 1
+  const search = useDebounce(searchValue, 500)
+  const { data, isLoading, isFetching } = useGetMoviesFromSearchQuery({
+    search,
+    page,
+  })
   const foundData = data?.Search
 
   const [showOnHover, setShowOnHover] = useState(false)
@@ -30,7 +33,7 @@ export const Suggest = ({ searchValue, show }: Props) => {
   if ((!searchValue || !show) && !showOnHover) {
     return null
   }
-  if (isLoading || isFetching || debounceValue !== searchValue) {
+  if (isLoading || isFetching || search !== searchValue) {
     return (
       <li className={style.field}>
         <Loader />

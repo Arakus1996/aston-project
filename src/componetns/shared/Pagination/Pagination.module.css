@@ -1,0 +1,26 @@
+.wrapper {
+  margin: 0 auto;
+  padding: 0;
+  width: fit-content;
+  display: flex;
+  gap: 4px;
+}
+
+.button {
+  padding: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #ffd83b;
+}
+
+.active {
+  font-size: 1.4em;
+}
+
+.disabled {
+  cursor: default;
+  color: white;
+  opacity: 0.5;
+}

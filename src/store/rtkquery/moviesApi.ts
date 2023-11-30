@@ -15,7 +15,8 @@ export const moviesApi = createApi({
       query: id => `?apikey=${API_KEY}&i=${id}`,
     }),
     getMoviesFromSearch: build.query({
-      query: search => `?apikey=${API_KEY}&s=${search}`,
+      query: ({ search, page }) =>
+        `?apikey=${API_KEY}&s=${search}&page=${page}`,
       transformResponse: transformGetMoviesResponce,
     }),
   }),
