@@ -12,7 +12,6 @@ import {
   signOut,
 } from 'firebase/auth'
 
-import { store } from '../store'
 import { auth, db } from '../../app/firebase'
 
 import type { ValueWithId } from '../../types/sharedType'
@@ -42,18 +41,25 @@ export const signOutFromDb = async () => {
   return signOut(auth)
 }
 
-export const addToDb = async (value: Value, collection: string) => {
-  const { userReducer } = store.getState()
-  if (userReducer.email) {
-    await updateDoc(doc(db, userReducer.email, 'collections'), {
+export const addToDb = async (
+  email: string | null,
+  value: Value,
+  collection: string
+) => {
+  if (email) {
+    await updateDoc(doc(db, email, 'collections'), {
       [collection]: arrayUnion(value),
     })
   }
 }
-export const removeToDb = async (value: Value, collection: string) => {
-  const { userReducer } = store.getState()
-  if (userReducer.email) {
-    await updateDoc(doc(db, userReducer.email, 'collections'), {
+
+export const removeToDb = async (
+  email: string | null,
+  value: Value,
+  collection: string
+) => {
+  if (email) {
+    await updateDoc(doc(db, email, 'collections'), {
       [collection]: arrayRemove(value),
     })
   }

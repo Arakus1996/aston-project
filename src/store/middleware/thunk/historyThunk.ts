@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { ValueWithId } from '../../../types/sharedType'
 import { addToDb, getDataToDb, removeToDb } from '../../firebase/firebase'
+import { RootState } from '../../store'
 
 type ID = string | number
 
@@ -16,18 +17,22 @@ export const getHistory = createAsyncThunk<ValueWithId[], string>(
   }
 )
 
-export const addToHistory = createAsyncThunk<ValueWithId, ValueWithId>(
-  'HISTORY/addToHistory',
-  async historyItem => {
-    await addToDb(historyItem, 'history')
-    return historyItem
-  }
-)
+export const addToHistory = createAsyncThunk<
+  ValueWithId,
+  ValueWithId,
+  { state: RootState }
+>('HISTORY/addToHistory', async (historyItem, { getState }) => {
+  const { userReducer } = getState()
+  await addToDb(userReducer.email, historyItem, 'history')
+  return historyItem
+})
 
-export const removeFromHistory = createAsyncThunk<ID, ValueWithId>(
-  'HISTORY/removeFromHistory',
-  async historyItem => {
-    await removeToDb(historyItem, 'history')
-    return historyItem.id
-  }
-)
+export const removeFromHistory = createAsyncThunk<
+  ID,
+  ValueWithId,
+  { state: RootState }
+>('HISTORY/removeFromHistory', async (historyItem, { getState }) => {
+  const { userReducer } = getState()
+  await removeToDb(userReducer.email, historyItem, 'history')
+  return historyItem.id
+})

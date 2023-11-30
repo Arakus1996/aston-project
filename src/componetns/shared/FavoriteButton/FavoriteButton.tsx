@@ -13,11 +13,12 @@ type Props = {
 
 export const FavoriteButton = (props: Props) => {
   return (
-    <div onClick={props.handleClick} className={style.favBtn}>
+    <div className={style.favBtn}>
       {props.isLoading ? (
         <Loader />
       ) : (
         <FavoriteIcon
+          onClick={props.handleClick}
           className={
             props.isActive ? style.favoriteIcon__active : style.favoriteIcon
           }
