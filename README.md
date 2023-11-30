@@ -1,10 +1,10 @@
-# Getting Started with Create React App
+# Aston project
 
 Status of Last Deployment:<br>
 <img src="https://github.com/Arakus1996/aston-project/actions/workflows/github-deploy.yml/badge.svg"><br>
 [![Netlify Status](https://api.netlify.com/api/v1/badges/87170444-5f6a-46e5-8882-c975b3ee071f/deploy-status)](https://app.netlify.com/sites/keen-palmier-158688/deploys)
 
-## [keen-palmier-158688.netlify.app](https://keen-palmier-158688.netlify.app/)
+## [keen-palmier-158688.netlify.app](https://keen-palmier-158688.netlify.app/)   <=== СТЕНД
 
 
 
@@ -39,7 +39,7 @@ Status of Last Deployment:<br>
 
 ## 2 Уровень (необязательный)
 - [x] Использование **TypeScript**.
-- [x] Использование **Firebase** для учетных записей пользователей и их Избранного и Истории поиска. firebase
+- [x] Использование **Firebase** для учетных записей пользователей и их Избранного и Истории поиска. [firebase](https://github.com/Arakus1996/aston-project/blob/main/src/store/firebase/firebase.ts)
 - [x] Настроен **CI/CD**.
 
 # Дополнительно:
