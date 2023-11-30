@@ -20,7 +20,7 @@ import {
   isLodingUserSelect,
 } from '../store/selectors/userSelector'
 
-import { SuccessAuthRoute } from './EventRouter'
+import { FailureAuthRoute, SuccessAuthRoute } from './EventRouter'
 
 export function RootRouter() {
   const isLoading = useSelector(isLodingUserSelect)
@@ -40,9 +40,11 @@ export function RootRouter() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/movie/:id' element={<Movie />} />
-                <Route path='/favorites' element={<Favorites />} />
+                <Route element={<FailureAuthRoute user={user} />}>
+                  <Route path='/favorites' element={<Favorites />} />
+                  <Route path='/history' element={<History />} />
+                </Route>
                 <Route path='/search' element={<Search />} />
-                <Route path='/history' element={<History />} />
                 <Route element={<SuccessAuthRoute user={user} />}>
                   <Route path='/login' element={<Login />} />
                   <Route path='/registration' element={<Registration />} />

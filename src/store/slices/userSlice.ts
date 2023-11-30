@@ -35,28 +35,22 @@ const userSlice = createSlice({
     builder
       .addCase(createUser.pending, state => {
         state.error = ''
-        state.isLoading = true
       })
       .addCase(createUser.fulfilled, (state, action) => {
         state.email = action.payload
-        state.isLoading = false
       })
       .addCase(createUser.rejected, state => {
         state.error = 'Error Registration'
-        state.isLoading = false
       })
 
       .addCase(signInUser.pending, state => {
         state.error = ''
-        state.isLoading = true
       })
       .addCase(signInUser.fulfilled, (state, action) => {
         state.email = action.payload
-        state.isLoading = false
       })
       .addCase(signInUser.rejected, state => {
         state.error = 'Error Login'
-        state.isLoading = false
       })
 
       .addCase(signOutUser.fulfilled, (state, action) => {
