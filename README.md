@@ -41,3 +41,10 @@ Status of Last Deployment:<br>
 - [x] Использование **TypeScript**.
 - [x] Использование **Firebase** для учетных записей пользователей и их Избранного и Истории поиска. firebase
 - [x] Настроен **CI/CD**.
+
+# Дополнительно:
+- использована библиотека react-hook-form для форм регистрации и входа
+- использована библиотека react-paginate для пагинации
+- использовались CSS Modules и библиотека claccnames
+- использовалась react-error-boundary
+- используется API по поиску фильмов [omdbapi](https://www.omdbapi.com/)
