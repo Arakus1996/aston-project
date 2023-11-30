@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { lazy, Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
+import { useSelector } from 'react-redux'
 
 const Home = lazy(() => import('../pages/home'))
 const Login = lazy(() => import('../pages/Login'))
@@ -10,17 +11,20 @@ const Favorites = lazy(() => import('../pages/Favorites'))
 const Search = lazy(() => import('../pages/Search'))
 const History = lazy(() => import('../pages/History'))
 import { Navbar } from '../componetns/Navbar/Navbar'
-import { useAppSelector } from '../store/hooks'
 import { Preloader } from '../componetns/shared/Preloader/Preloader'
 import { ThemeProvider } from '../app/theme/ThemeProvider'
 import { Layout } from '../app/Layout/Layout'
 import { Fallback } from '../componetns/shared/ErrorFallback/Fallback'
+import {
+  emailSelect,
+  isLodingUserSelect,
+} from '../store/selectors/userSelector'
 
 import { SuccessAuthRoute } from './EventRouter'
 
 export function RootRouter() {
-  const isLoading = useAppSelector(state => state.userReducer.isLoading)
-  const user = useAppSelector(state => state.userReducer.email)
+  const isLoading = useSelector(isLodingUserSelect)
+  const user = useSelector(emailSelect)
 
   if (isLoading) {
     return <Preloader />

@@ -1,17 +1,19 @@
 import { useNavigate } from 'react-router-dom'
 import classNames from 'classnames'
+import { useSelector } from 'react-redux'
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { useAppDispatch } from '../../store/hooks'
 import { removeFromHistory } from '../../store/middleware/thunk/historyThunk'
 import { setValue } from '../../store/slices/searchSlice'
 import { ValueWithId } from '../../types/sharedType'
 import { HistoryItem } from '../HistoryItem/HistoryItem'
 import { NoDataComponent } from '../shared/NoDataInfo/NoDataInfo'
+import { historySelect } from '../../store/selectors/historySelector'
 
 import style from './HistoryTable.module.css'
 
 export const HistoryTable = () => {
-  const history = useAppSelector(store => store.historyReducer.history)
+  const history = useSelector(historySelect)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 

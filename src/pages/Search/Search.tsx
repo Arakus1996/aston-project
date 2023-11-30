@@ -1,13 +1,14 @@
 import { useSearchParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import { MovieCards } from '../../componetns/MovieCards/MovieCards'
 import { NotFound } from '../../componetns/shared/NotFound/NotFound'
 import { Preloader } from '../../componetns/shared/Preloader/Preloader'
-import { useAppSelector } from '../../store/hooks'
 import { useGetMoviesFromSearchQuery } from '../../store/rtkquery/moviesApi'
+import { isLodingUserSelect } from '../../store/selectors/userSelector'
 
 export const Search = () => {
-  const isLoadingUserData = useAppSelector(store => store.userReducer.isLoading)
+  const isLoadingUserData = useSelector(isLodingUserSelect)
   const [searchParams] = useSearchParams()
   const page = Number(searchParams.get('page')) || 1
   const search = searchParams.get('s')

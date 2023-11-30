@@ -1,12 +1,12 @@
+import { useSelector } from 'react-redux'
+
 import { MovieCards } from '../../componetns/MovieCards/MovieCards'
 import { NoDataComponent } from '../../componetns/shared/NoDataInfo/NoDataInfo'
 import { Title } from '../../componetns/shared/Title/Title'
-import { useAppSelector } from '../../store/hooks'
+import { favoritesSelect } from '../../store/selectors/favoriteSelector'
 
 export const Favorites = () => {
-  const favoriteMovies = useAppSelector(
-    store => store.favoritesReducer.favorites
-  )
+  const favoriteMovies = useSelector(favoritesSelect)
 
   return (
     <>

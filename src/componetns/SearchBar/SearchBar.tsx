@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import { ChangeEvent, SyntheticEvent, useState, useRef } from 'react'
 import classNames from 'classnames'
+import { useSelector } from 'react-redux'
 
-import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { useAppDispatch } from '../../store/hooks'
 import { setValue } from '../../store/slices/searchSlice'
 import { addToHistory } from '../../store/middleware/thunk/historyThunk'
 import { ReactComponent as LogoFind } from '../../assets/find.svg'
 import { useChekTheme } from '../../hooks/useCheckTheme'
+import { valueSelect } from '../../store/selectors/searchSelector'
 
 import style from './SearchBar.module.css'
 import { SuggestContainer } from './Suggest/SuggestContainer'
@@ -19,7 +21,7 @@ export const SearchBar = () => {
   const navigate = useNavigate()
 
   const dispatch = useAppDispatch()
-  const searchValue = useAppSelector(state => state.searchReducer.value)
+  const searchValue = useSelector(valueSelect)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setValue(e.target.value))
